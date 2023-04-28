@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-04-2023 a las 00:20:04
+-- Tiempo de generación: 29-04-2023 a las 00:36:39
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -34,6 +34,13 @@ CREATE TABLE `calificacionplato` (
   `calificacion` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `calificacionplato`
+--
+
+INSERT INTO `calificacionplato` (`idcalificacionplato`, `idusuario`, `idplato`, `calificacion`) VALUES
+(1, 2, 1, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +53,13 @@ CREATE TABLE `favoritoplato` (
   `idplato` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `favoritoplato`
+--
+
+INSERT INTO `favoritoplato` (`idfavoritoplato`, `idusuario`, `idplato`) VALUES
+(1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -53,13 +67,20 @@ CREATE TABLE `favoritoplato` (
 --
 
 CREATE TABLE `plato` (
-  `idplato` int(11) NOT NULL,
-  `idrestaurante` int(11) UNSIGNED NOT NULL,
-  `nombre` int(50) NOT NULL,
-  `descripcion` int(255) NOT NULL,
-  `foto` varchar(50) NOT NULL,
-  `precio` decimal(10,0) NOT NULL
+  `idplato` int(10) NOT NULL,
+  `idrestaurante` int(10) UNSIGNED NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `foto` varchar(50) DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `plato`
+--
+
+INSERT INTO `plato` (`idplato`, `idrestaurante`, `nombre`, `descripcion`, `foto`, `precio`) VALUES
+(1, 1, 'Sunday', 'Cono de Helado', '', 349.00);
 
 -- --------------------------------------------------------
 
@@ -74,6 +95,13 @@ CREATE TABLE `recomendar` (
   `idusuario_a_recomnedar` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `recomendar`
+--
+
+INSERT INTO `recomendar` (`idrecomendar`, `idusuario`, `idplato`, `idusuario_a_recomnedar`) VALUES
+(1, 2, 1, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -81,11 +109,18 @@ CREATE TABLE `recomendar` (
 --
 
 CREATE TABLE `restaurantes` (
-  `idrestaurante` int(11) NOT NULL,
+  `idrestaurante` int(10) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `direccion` varchar(255) NOT NULL,
-  `telefono` varchar(25) NOT NULL
+  `telefono` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `restaurantes`
+--
+
+INSERT INTO `restaurantes` (`idrestaurante`, `nombre`, `direccion`, `telefono`) VALUES
+(1, 'McDonald´s', 'Florida 456', '541158695475');
 
 -- --------------------------------------------------------
 
@@ -97,9 +132,17 @@ CREATE TABLE `usuarios` (
   `idusuario` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `clave` varchar(25) NOT NULL,
-  `rot` varchar(25) NOT NULL,
-  `idrestautrante` int(10) UNSIGNED NOT NULL
+  `rol` varchar(25) NOT NULL,
+  `idrestautrante` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`idusuario`, `email`, `clave`, `rol`, `idrestautrante`) VALUES
+(2, 'cmfabregat@gmail.com', '1234', 'admin', NULL),
+(3, 'claudiachauque9@gmail.com', '1234', 'admin', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -149,37 +192,37 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `calificacionplato`
 --
 ALTER TABLE `calificacionplato`
-  MODIFY `idcalificacionplato` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idcalificacionplato` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `favoritoplato`
 --
 ALTER TABLE `favoritoplato`
-  MODIFY `idfavoritoplato` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idfavoritoplato` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `plato`
 --
 ALTER TABLE `plato`
-  MODIFY `idplato` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idplato` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `recomendar`
 --
 ALTER TABLE `recomendar`
-  MODIFY `idrecomendar` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idrecomendar` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `restaurantes`
 --
 ALTER TABLE `restaurantes`
-  MODIFY `idrestaurante` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idrestaurante` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
