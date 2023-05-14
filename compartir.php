@@ -3,7 +3,9 @@
 ?>
 <html>
 <body>
-<h1>Que Cenamos</h1>
+<?php
+    require( 'encabezado.php' ) ;
+?>
 
 <h2>Compartir plato</h2>
 

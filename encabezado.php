@@ -2,8 +2,6 @@
     <tr>
     <td>
         <h1>Que Cenamos</h1>
-
-        <h2>Busque y elija el plato que desea y al menor precio</h2>
     </td>
     <td align='right'>
         <button onclick="window.location='/logout.php'"">Cerrar Session</button>
@@ -33,6 +31,7 @@
         <?php
             }       
         ?>
+        <button onclick="window.location='/usuario.php'"">Vista de Usuario</button>
 
     </td>
     <tr>
