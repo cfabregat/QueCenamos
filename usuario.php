@@ -3,18 +3,8 @@
 ?>
 <html>
 <body>
-<h1>Que Cenamos</h1>
-<h2>Bienvenido: Usuario</h2>
-
-<button onclick="window.location='/cambiar_clave.html'"">Cambiar clave</button>
-<button onclick="window.location='/logout.php'"">Cerrar Session</button>
-
 <?php
-    if( $_SESSION['rol'] == 'gestion' ){
-?>
-<button onclick="window.location='/gestion.html'"">Vista de Gestion</button>
-<?php
-    }
+    require( 'encabezado.php' ) ;
 ?>
 
 <hr>

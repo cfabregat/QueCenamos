@@ -1,12 +1,12 @@
+<?php
+    session_start() ;
+?>
 <html>
 <body>
-<h1>Que Cenamos</h1>
+<?php
+    require( 'encabezado.php' ) ;
+?>
 
-<h2>Gesti&oacute;n Interna</h2>
-
-<input type="submit" value="Cambio de Clave">
-<button onclick="window.location='/logout.php'"">Cerrar Session</button>
-<button onclick="window.location='/usuario.php'"">Vista de Usuario</button>
 
 <hr>
 
