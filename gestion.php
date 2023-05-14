@@ -7,7 +7,6 @@
     require( 'encabezado.php' ) ;
 ?>
 
-
 <hr>
 
 Alta de Usuarios:
@@ -50,32 +49,6 @@ Alta de Usuarios:
 
 <hr>
 
-Alta de Restaurante:
-<form> 
-   Nombre: <input type="text">
-   Direccion: <input type="text">
-   Telefono: <input type="text">
-    <input type="submit" value="Cargar"> <input type="reset">
-</form>
-
-
-<h3><p align="center">Listado de Restaurantes</p></h3>
-<table border="1" align="center">
-    <tr>
-    <th>Nombre</th>
-    <th>Direccion</th>
-    <th>Telefono</th>
-    <th>Modificar</th>
-    <th>Eliminar</th>
-    </tr>
-    <tr>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="submit" value="Modificar"></td>
-        <td><input type="submit" value="Eliminar"></td>
-    </tr>
-</table>
 
 </body>
 </html>
