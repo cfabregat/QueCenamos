@@ -9,7 +9,7 @@
 
 <hr>
 
-<p align='center'><button onclick="window.location='/compartir.php'"">Compartir Plato</button></p>
+<p align='center'><button onclick="window.location='/usuario.php'"">Buscar Plato</button><button onclick="window.location='/compartir.php'"">Compartir Plato</button></p>
 
 <hr>
 
