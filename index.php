@@ -5,9 +5,9 @@
 <body>
 <h1>Que Cenamos</h1>
 
-<hr> 
+<hr /> 
 
-<p>Usuario: <input type="text" name="usuario">Clave: <input type="text" name="clave"><input type="submit" name="Ingresar" value="Ingresar" onClick="window.location='/usuario.php'"><br /><button onclick="window.location='/clave.php'"">Olvide la contrase&ntilde;a</button></p>
+<p>Usuario: <input type="text" name="usuario">Clave: <input type="text" name="clave"><input type="submit" name="Ingresar" value="Ingresar" onClick="window.location='/usuario.php'"><button onclick="window.location='/clave.php'"">Olvide la contrase&ntilde;a</button></p>
 
 <hr> 
 
@@ -15,12 +15,8 @@
 
 <table border="1" align="center">
     <tr>
-        <td>
-            <p align="center">Plato a buscar</p>
-        </td>
-        <td>
-            Buscar por foto
-        </td>
+        <td><p align="center">Plato a buscar</p></td>
+        <td><p align="center">Buscar por foto</p></td>
     </tr>
     <tr>
         <td>
@@ -45,9 +41,9 @@
     <th>Foto</th>
     <th>Precio</th>
     <th>Fecha</th>
-    <th>Ubicacion<br />(solo usuario registrado)</th>
-    <th>Calificacion</th>
-    <th>Mi Calificacion<br />(solo usuario registrado)</th>
+    <th>Ubicaci&oacute;nn<br />(solo usuario registrado)</th>
+    <th>Calificaci&oacute;nn</th>
+    <th>Mi Calificaci&oacute;nn<br />(solo usuario registrado)</th>
     </tr>
     <tr>
         <td>&nbsp;</td>
@@ -57,11 +53,11 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>Promedio</td>
-        <td>MiCalificacion <button>ReCalificar</button></td>
+        <td>MiCalificaci&oacute;nn <button>ReCalificar</button></td>
     </tr>
 </table>
 
-<hr />
+<br /><hr />
 
 <h2>Mis Publicaciones</h2>
 <br>
@@ -73,8 +69,8 @@
         <th>Precio</th>
         <th>Fecha</th>
         <th>Ubicaci&oacute;n</th>
-        <th>Calificacion</th>
-        <th>Publicacion</th>
+        <th>Calificaci&oacute;nn</th>
+        <th>Publicaci&oacute;nn</th>
         <th>Recomendar</th>
     </tr>
     <tr>
@@ -84,13 +80,13 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>Promedio MiCalificacion <button>ReCalificar</button></td>
-        <td><button>Eliminar Publicacion</button></td>
-        <td><input type="text" value="Email a quien recomendar"><button>Enviar recomendacion</button>
+        <td>Promedio MiCalificaci&oacute;nn <button>ReCalificar</button></td>
+        <td><button>Eliminar Publicaci&oacute;nn</button></td>
+        <td><input type="text" value="Email a quien recomendar"><button>Enviar recomendaci&oacute;nn</button>
     </tr>
 </table>
 
-<hr />
+<br /><hr />
 
 <h2>Recomendaciones de otros usuarios</h2>
 <table align="center" border="1">
@@ -101,9 +97,9 @@
     <th>Foto</th>
     <th>Precio</th>
     <th>Fecha</th>
-    <th>Ubicación</th>
-    <th>Calificacion</th>
-    <th>Mi Calificacion</th>
+    <th>Ubicaci&oacute;nn</th>
+    <th>Calificaci&oacute;nn</th>
+    <th>Mi Calificaci&oacute;n</th>
     <th>Recomendar</th>
     </tr>
     <tr>
@@ -116,30 +112,27 @@
     <td>&nbsp;</td>
     <td>Promedio</td>
     <td>MiCalificacion <button>ReCalificar</button></td>
-    <td><button>Eliminar Recomendacion</button></td>
+    <td><button>Eliminar Recomendaci&oacute;nn</button></td>
 </tr>
 </table>
 
-<hr />
+<br /><hr />
 
 <h2>Publicar plato</h2>
-<form> 
-Ubicación del lugar
-
-<input type="text" value="Nombre">
+    <form> 
+    Ubicación del lugar
+    <input type="text" value="Nombre">
     <input type="text" value="Direccion">
     <input type="text" value="Telefono">
     <input type="text" value="Red Social">
-
-    
-
-   Nombre del Plato: <input type="text">
-   Descripcion: <input type="text">
-   Precio: <input type="text">
-   Foto: <input type="file">
-   <br />
+    <br />
+    Nombre del Plato: <input type="text">
+    Descripci&oacute;nn: <input type="text">
+    Precio: <input type="text">
+    Foto: <input type="file">
+    <br />
     <button>Calificar</button>
     <p align='center'><input type="submit" value="Publicar"></p>
-</form>
+    </form>
 </body>
 </html>
