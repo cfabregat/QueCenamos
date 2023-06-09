@@ -11,7 +11,7 @@
 
 <hr> 
 
-<h2 align='center'>Busque el plato por nombre o ti&eacute;ntese con una foto</h2>
+<h2>Busque el plato por nombre o ti&eacute;ntese con una foto</h2>
 
 <table border="1" align="center">
     <tr>
@@ -30,25 +30,52 @@
         </td>
         <td>
             <p align="center" style="border: red 5px solid">Foto</p>
-            <p align='center'><button onclick="">Cambiar</button><br / >
+            <p align='center'><button onclick="">Voy a tener suerte</button><br / >
             Haga click sobre la foto cuando quiera ese plato</p>
         </td>
     </tr>
 
 </table>
 
-<br />
-<hr> 
-
-<h3><p align="center">Listado de Platos</p></h3>
-<p align='center'>Para ver la ubicación debe estar registrado</p>
+<h4><p align="center">Resultado de Busqueda</p></h4>
 <table border="1" align="center">
     <tr>
     <th>Plato</th>
     <th>Descripci&oacute;n</th>
     <th>Foto</th>
     <th>Precio</th>
+    <th>Fecha</th>
+    <th>Ubicacion<br />(solo usuario registrado)</th>
     <th>Calificacion</th>
+    <th>Mi Calificacion<br />(solo usuario registrado)</th>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>        
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Promedio</td>
+        <td>MiCalificacion <button>ReCalificar</button></td>
+    </tr>
+</table>
+
+<hr />
+
+<h2>Mis Publicaciones</h2>
+<br>
+<table align="center" border="1">
+    <tr>
+        <th>Plato</th>
+        <th>Descripci&oacute;n</th>
+        <th>Foto</th>
+        <th>Precio</th>
+        <th>Fecha</th>
+        <th>Ubicaci&oacute;n</th>
+        <th>Calificacion</th>
+        <th>Publicacion</th>
+        <th>Recomendar</th>
     </tr>
     <tr>
         <td>&nbsp;</td>
@@ -56,7 +83,63 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Promedio MiCalificacion <button>ReCalificar</button></td>
+        <td><button>Eliminar Publicacion</button></td>
+        <td><input type="text" value="Email a quien recomendar"><button>Enviar recomendacion</button>
     </tr>
 </table>
+
+<hr />
+
+<h2>Recomendaciones de otros usuarios</h2>
+<table align="center" border="1">
+    <tr>
+    <th>Usuario</th>
+    <th>Descripci&oacute;n</th>
+    <th>Plato</th>
+    <th>Foto</th>
+    <th>Precio</th>
+    <th>Fecha</th>
+    <th>Ubicación</th>
+    <th>Calificacion</th>
+    <th>Mi Calificacion</th>
+    <th>Recomendar</th>
+    </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Promedio</td>
+    <td>MiCalificacion <button>ReCalificar</button></td>
+    <td><button>Eliminar Recomendacion</button></td>
+</tr>
+</table>
+
+<hr />
+
+<h2>Publicar plato</h2>
+<form> 
+Ubicación del lugar
+
+<input type="text" value="Nombre">
+    <input type="text" value="Direccion">
+    <input type="text" value="Telefono">
+    <input type="text" value="Red Social">
+
+    
+
+   Nombre del Plato: <input type="text">
+   Descripcion: <input type="text">
+   Precio: <input type="text">
+   Foto: <input type="file">
+   <br />
+    <button>Calificar</button>
+    <p align='center'><input type="submit" value="Publicar"></p>
+</form>
 </body>
 </html>

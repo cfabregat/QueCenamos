@@ -7,14 +7,14 @@
     require( 'encabezado.php' ) ;
 ?>
 
-<h2>Compartir plato</h2>
+<h2>Publicar plato</h2>
 
 <h2><p align="center">Ubicación del lugar</p></h2>
 <form> 
     <input type="text" value="Nombre">
     <input type="text" value="Direccion">
     <input type="text" value="Telefono">
-
+    <input type="text" value="Red Social">
 <hr>
 <h2><p align="center">Datos del Plato</p></h2>
 
