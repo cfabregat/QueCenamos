@@ -1,5 +1,9 @@
 <?php
     session_start() ;
+
+    if( !isset($_SESSIO['rol']))
+        
+
 ?>
 <html>
 <body>
@@ -48,7 +52,6 @@ Alta de Usuarios:
 </table>
 
 <hr>
-
 
 </body>
 </html>
