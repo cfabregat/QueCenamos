@@ -186,7 +186,7 @@
     <table align='center' border='1'>
         <tr>
             <td>
-                <form action="index.php" method="post">
+                <form action="index.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="accion" value="publicar">
                 Fecha<input type="text" name="fecha" value="<?php echo date('Y-m-d H:i:s'); ?>"><br />
                 Ubicación: 

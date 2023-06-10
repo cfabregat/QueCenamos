@@ -30,7 +30,7 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
             $nombre = $_POST['nombre'] ;
             $descripcion = $_POST['descripcion'] ;
             $precio = $_POST['precio'] ;
-            $foto = $_POST['foto'] ;
+            $foto = $_FILES['foto']['tmp_name'] ;
             $calificacion = $_POST['calificacion'] ;
 
             publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto, $calificacion ) ;

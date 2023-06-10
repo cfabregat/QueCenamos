@@ -4,6 +4,7 @@ $mysql_usuario = 'root' ;
 $mysql_clave = '' ;
 $mysql_base = 'quecenamos' ;
 $con ;
+$fotos_carpeta = 'fotos/' ;
 
 function mysql_conectar(){
     global $con, $mysql_usuario, $mysql_clave, $mysql_base ;
@@ -76,7 +77,7 @@ function usuario_existe($email){
 }
 
 function publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto, $calificacion ){
-    global $con ;
+    global $con, $fotos_carpeta ;
 
     mysql_conectar() ;
     $idusuario = $_SESSION['idusuario'] ;
@@ -85,19 +86,25 @@ function publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubica
     $nombre = mysqli_escape_string($con, $nombre);
     $descripcion = mysqli_escape_string($con, $descripcion);
     $precio = mysqli_escape_string($con, $precio);
-    $foto = mysqli_escape_string($con, $foto);
+    $foto_archivo  = $fotos_carpeta . $_SESSION['idusuario'] . basename($_FILES["foto"]["name"]) ;
     $calificacion = mysqli_escape_string($con, $calificacion);
 
-    $sql = "INSERT INTO platos (idplato, idusuario, nombre, descripcion, foto, precio, fecha, ubicacion) VALUES (NULL, $idusuario, '$nombre', '$descripcion', '$foto', '$precio', '$fecha', '$ubicacion');" ;
+    $sql = "INSERT INTO platos (idplato, idusuario, nombre, descripcion, foto, precio, fecha, ubicacion) VALUES (NULL, $idusuario, '$nombre', '$descripcion', '$foto_archivo', '$precio', '$fecha', '$ubicacion');" ;
     mysqli_query( $con, $sql );
     $idplato = $con->insert_id ;
 
     $sql = "INSERT INTO calificaciones (idcalificacion, idusuario, idplato, calificacion) VALUES (NULL, $idusuario, $idplato, '$calificacion');" ;
     mysqli_query( $con, $sql );
 
-
     mysql_desconectar() ;
 
+    //  Subo la imagen a la carpeta
+    $foto_archivo  = $fotos_carpeta . $_SESSION['idusuario'] . basename($_FILES["foto"]["name"]) ;
+    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $foto_archivo)) {
+        echo "La foto ". htmlspecialchars( basename( $_FILES["foto"]["name"])). " hay sido subida.";
+      } else {
+        echo "Error al subir la foto.";
+      }
 }
 
 ?>
