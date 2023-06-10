@@ -1,5 +1,15 @@
 <?php
     session_start() ;
+
+    require( 'funciones.php' ) ;
+
+    if( isset($_POST['accion']) && $_POST['accion']="registro" )
+        {
+            $email = $_POST['email'] ;
+            $clave = $_POST['clave'] ;
+            //$_POST['clave2'] ;
+            usuario_registrar( $email, $clave ) ;
+        }
 ?>
 <html>
 <body>
@@ -7,7 +17,7 @@
 
 <hr /> 
 
-Email <input type="text" name="usuario">Clave: <input type="text" name="clave">Repetir Clave<input type="text" name="clave"><button onclick="">Registrar Usuario</button>
+Email <form action="index.php" method="post"><input type="hidden" name="accion" value="registro"><input type="text" name="email">Clave: <input type="text" name="clave">Repetir Clave<input type="text" name="clave2"><input type="submit" value="Registrar Usuario"></form>
 <br />
 
 <hr /> 
