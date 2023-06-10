@@ -10,8 +10,7 @@
             $email = $_POST['email'] ;
             $clave = $_POST['clave'] ;
 
-            $_SESSION['email'] = $email ; 
-            $_SESSION['clave'] = $clave ; 
+            validar_usuario( $email, $clave ) ;
         }
 
     if( isset($_POST['accion']) && $_POST['accion']=="registro" )
@@ -25,15 +24,68 @@
             else
                 usuario_registrar( $email, $clave ) ;
         }
+
+        if( isset($_POST['accion']) && $_POST['accion']=="publicar" )
+        {
+            $fecha = $_POST['fecha'] ;
+            $ubicacion_nombre = $_POST['ubicacion_nombre'] ;
+            $ubicacion_direccion = $_POST['ubicacion_direccion'] ;
+            $ubicacion_telefono = $_POST['ubicacion_telefono'] ;
+            $ubicacion_redsocial = $_POST['ubicacion_redsocial'] ;
+            $nombre = $_POST['nombre'] ;
+            $descripcion = $_POST['descripcion'] ;
+            $precio = $_POST['precio'] ;
+            $foto = $_POST['foto'] ;
+
+            publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto ) ;
+        }
 ?>
 <html>
 <body>
-<table width='90%'>
+<table align='center' width='90%'>
     <tr>
-    <td>
-        <h1>Que Cenamos <h4>(<?php echo isset($_SESSION['email'])?$_SESSION['email']:''; ?>)</h4></h1>
+    <td align='center'>
+        <h1>¿Que Cenamos?<h4><?php echo isset($_SESSION['email'])? $_SESSION['email'] . '<br />('. $_SESSION['idusuario'] . ')' :''; ?></h4></h1>
     </td>
-    <td align='right'>
+    <td>
+        <?php  
+            //  Si no esta logeado muestro la parte de registrar
+            if( !isset($_SESSION['email']) ){
+        ?>
+            <form action="index.php" method="post">
+            <input type="hidden" name="accion" value="registro">
+            Email<input type="text" name="email"><br />
+            Clave: <input type="text" name="clave"><br />
+            Repetir Clave: <input type="text" name="clave2"><br />
+            <input type="submit" value="Registrar Usuario">
+            </form>
+        <?php
+            }
+        ?>
+    </td>
+
+    <td>
+        <?php  
+            //  Si no esta logeado muestro la parte de registrar
+            if( !isset($_SESSION['email']) ){
+        ?>
+            <form action="index.php" method="post">
+            <input type="hidden" name="accion" value="login">
+            Email:<input type="text" name="email"><br />
+            Clave:<input type="text" name="clave"><br />
+            <input type="submit" value="Ingresar">
+            <button onclick="window.location='/clave.php'"">Olvide la contrase&ntilde;a</button>
+            </form>
+        <?php
+            }
+        ?>
+    </td>        
+
+    <td>
+        <?php  
+            //  Si esta logeado muestro la parte de registrar
+            if( isset($_SESSION['email']) ){
+        ?>
         <button onclick="window.location='/logout.php'"">Cerrar Session</button>
         <br />
         <button onclick="window.location='/cambiar_clave.html'"">Cambiar clave</button>
@@ -41,56 +93,20 @@
         <?php
             if( $_SESSION['rol'] == 'gestion' ){
         ?>
-
-        <?php
-            if( $_SERVER['REQUEST_URI'] == '/usuario.php' ){
-        ?>
-        <button onclick="window.location='/gestion.php'"">Vista de Gestion</button>        
+            <button onclick="window.location='/gestion.php'"">Vista de Gestion</button>        
         <?php
             }       
         ?>
 
         <?php
-            if( $_SERVER['REQUEST_URI'] == '/gestion.php' ){
-        ?>
-        <button onclick="window.location='/usuario.php'"">Vista de Usuario</button>
-        <?php
-            }
-        ?>
-
-        <?php
             }       
         ?>
-        <button onclick="window.location='/usuario.php'"">Vista de Usuario</button>
 
     </td>
     <tr>
 </table>
 
 <hr /> 
-
-    <form action="index.php" method="post">
-    <input type="hidden" name="accion" value="registro">
-    Email<input type="text" name="email">
-    Clave: <input type="text" name="clave">
-    Repetir Clave: <input type="text" name="clave2">
-    <input type="submit" value="Registrar Usuario">
-    </form>
-<br />
-
-<hr /> 
-
-<p>
-    <form action="index.php" method="post">
-    <input type="hidden" name="accion" value="login">
-    Email:<input type="text" name="email">
-    Clave:<input type="text" name="clave">
-    <input type="submit" value="Ingresar">
-    <button onclick="window.location='/clave.php'"">Olvide la contrase&ntilde;a</button>
-    </form>
-</p>
-
-<hr> 
 
 <h2>Busque el plato por nombre o ti&eacute;ntese con una foto</h2>
 
@@ -200,21 +216,27 @@
 <br /><hr />
 
 <h2>Publicar plato</h2>
-    <form> 
-    Fecha<input type="text" value="">
-    Ubicación del lugar
-    <input type="text" value="Nombre">
-    <input type="text" value="Direccion">
-    <input type="text" value="Telefono">
-    <input type="text" value="Red Social">
-    <br />
-    Nombre del Plato: <input type="text">
-    Descripci&oacute;nn: <input type="text">
-    Precio: <input type="text">
-    Foto: <input type="file">
-    <br />
-    <button>Calificar</button>
-    <p align='center'><input type="submit" value="Publicar"></p>
-    </form>
+    <table align='center' border='1'>
+        <tr>
+            <td>
+                <form action="index.php" method="post">
+                <input type="hidden" name="accion" value="publicar">
+                Fecha<input type="text" name="fecha" value="<?php echo date('Y-m-d H:i:s'); ?>"><br />
+                Ubicación: 
+                    <input type="text" name="ubicacion_nombre" value="Nombre">
+                    <input type="text" name="ubicacion_direccion" value="Direccion">
+                    <input type="text" name="ubicacion_telefono" value="Telefono">
+                    <input type="text" name="ubicacion_redsocial" value="Red Social"><br />
+                Plato: 
+                    <input type="text" name="nombre" value="Nombre">
+                    <input type="text" name="descripcion" value="Descripcion">
+                    <input type="text" name="precio" value="Precio"><br />
+                Foto: <input type="file" name="foto" value="foto"><br />
+                <button>Calificar</button><br   />
+                <p align='center'><input type="submit" value="Publicar"></p>
+                </form>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
