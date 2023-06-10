@@ -1,28 +1,59 @@
 <?php
     session_start() ;
 
+    $_SESSION['rol'] = 'usuario' ;
+
     require( 'funciones.php' ) ;
+
+    if( isset($_POST['accion']) && $_POST['accion']="login" )
+        {
+            $email = $_POST['email'] ;
+            $clave = $_POST['clave'] ;
+
+            $_SESSION['email'] = $email ; 
+            $_SESSION['clave'] = $clave ; 
+        }
 
     if( isset($_POST['accion']) && $_POST['accion']="registro" )
         {
             $email = $_POST['email'] ;
             $clave = $_POST['clave'] ;
-            //$_POST['clave2'] ;
-            usuario_registrar( $email, $clave ) ;
+            $clave2 = $_POST['clave2'] ;
+
+            if( $clave != $clave2 )
+                echo "Las claves ingresadas no corresponden" ;
+            else
+                usuario_registrar( $email, $clave ) ;
         }
 ?>
 <html>
 <body>
-<h1>Que Cenamos</h1>
+<?php
+    require( 'encabezado.php') ;
+?>
 
 <hr /> 
 
-Email <form action="index.php" method="post"><input type="hidden" name="accion" value="registro"><input type="text" name="email">Clave: <input type="text" name="clave">Repetir Clave<input type="text" name="clave2"><input type="submit" value="Registrar Usuario"></form>
+    <form action="index.php" method="post">
+    <input type="hidden" name="accion" value="registro">
+    Email<input type="text" name="email">
+    Clave: <input type="text" name="clave">
+    Repetir Clave: <input type="text" name="clave2">
+    <input type="submit" value="Registrar Usuario">
+    </form>
 <br />
 
 <hr /> 
 
-<p>Email: <input type="text" name="usuario">Clave: <input type="text" name="clave"><input type="submit" name="Ingresar" value="Ingresar" onClick="window.location='/usuario.php'"><button onclick="window.location='/clave.php'"">Olvide la contrase&ntilde;a</button></p>
+<p>
+    <form action="index.php" method="post">
+    <input type="hidden" name="accion" value="login">
+    Email:<input type="text" name="email">
+    Clave:<input type="text" name="clave">
+    <input type="submit" value="Ingresar">
+    <button onclick="window.location='/clave.php'"">Olvide la contrase&ntilde;a</button>
+    </form>
+</p>
 
 <hr> 
 

@@ -1,7 +1,7 @@
 <table width='90%'>
     <tr>
     <td>
-        <h1>Que Cenamos</h1>
+        <h1>Que Cenamos <h4>(<?php echo isset($_SESSION['email'])?$_SESSION['email']:''; ?>)</h4></h1>
     </td>
     <td align='right'>
         <button onclick="window.location='/logout.php'"">Cerrar Session</button>
