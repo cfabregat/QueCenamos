@@ -46,7 +46,22 @@ function usuario_registrar($email,$clave){
     $sql = "INSERT INTO usuarios (idusuario, email, clave, rol) VALUES (NULL, '$email', '$clave', '$rol');" ;
     mysqli_query( $con, $sql );
     mysql_desconectar() ;
+
+    usuario_email_registro( $email, $clave ) ;
 }
+
+function usuario_email_registro( $email, $clave ){
+
+    $asunto = 'Registracion en el Sitio QueCenamos?' ;
+    $mensaje = 'Bienvenido al Sitio QueCenamos' . 'Sus credenciales son: $email, $clave' ;
+    $cabeceras = 'From: webmaster@quecenamos.com.ar' . "\r\n" . 'Reply-To: webmaster@quecenamos.com.ar' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+    try {
+        //$res = mail( $email, $asunto, $mensaje, $cabeceras ) ;
+    } catch (Exception $e) {
+        //echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+    }
+}
+
 function usuario_existe($email){
     global $con ;
     
@@ -60,7 +75,7 @@ function usuario_existe($email){
     return( $res ) ;
 }
 
-function publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto ){
+function publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto, $calificacion ){
     global $con ;
 
     mysql_conectar() ;
@@ -71,9 +86,16 @@ function publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubica
     $descripcion = mysqli_escape_string($con, $descripcion);
     $precio = mysqli_escape_string($con, $precio);
     $foto = mysqli_escape_string($con, $foto);
+    $calificacion = mysqli_escape_string($con, $calificacion);
 
     $sql = "INSERT INTO platos (idplato, idusuario, nombre, descripcion, foto, precio, fecha, ubicacion) VALUES (NULL, $idusuario, '$nombre', '$descripcion', '$foto', '$precio', '$fecha', '$ubicacion');" ;
     mysqli_query( $con, $sql );
+    $idplato = $con->insert_id ;
+
+    $sql = "INSERT INTO calificaciones (idcalificacion, idusuario, idplato, calificacion) VALUES (NULL, $idusuario, $idplato, '$calificacion');" ;
+    mysqli_query( $con, $sql );
+
+
     mysql_desconectar() ;
 
 }
