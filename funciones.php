@@ -15,7 +15,6 @@ function mysql_desconectar(){
 }
 
 function usuario_registrar($email,$clave){
-
     global $con ;
     $idusuario = "NULL" ;
     $rol = "usuario" ;
@@ -27,5 +26,18 @@ function usuario_registrar($email,$clave){
     mysqli_query( $con, $sql );
     mysql_desconectar() ;
 }
+function usuario_existe($email){
+    global $con ;
+    
+    mysql_conectar() ;
+    $email = mysqli_escape_string($con, $email);
+    $sql = "SELECT * FROM usuarios WHERE email='$email';" ;
+    $rec = mysqli_query( $con, $sql );
+    $res = mysqli_num_rows($rec) ;
+    mysql_desconectar() ;
+
+    return( $res ) ;
+}
+
 
 ?>

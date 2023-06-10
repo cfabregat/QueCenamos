@@ -5,7 +5,7 @@
 
     require( 'funciones.php' ) ;
 
-    if( isset($_POST['accion']) && $_POST['accion']="login" )
+    if( isset($_POST['accion']) && $_POST['accion']=="login" )
         {
             $email = $_POST['email'] ;
             $clave = $_POST['clave'] ;
@@ -14,7 +14,7 @@
             $_SESSION['clave'] = $clave ; 
         }
 
-    if( isset($_POST['accion']) && $_POST['accion']="registro" )
+    if( isset($_POST['accion']) && $_POST['accion']=="registro" )
         {
             $email = $_POST['email'] ;
             $clave = $_POST['clave'] ;
