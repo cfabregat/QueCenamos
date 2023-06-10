@@ -55,7 +55,7 @@
         ?>
         <button onclick="window.location='/logout.php'"">Cerrar Session</button>
         <br />
-        <button onclick="window.location='/cambiar_clave.html'"">Cambiar clave</button>
+        <button onclick="window.location='/cambiar_clave.php'"">Cambiar clave</button>
         <br />
         <?php
             if( $_SESSION['rol'] == 'gestion' ){

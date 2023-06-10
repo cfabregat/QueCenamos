@@ -36,6 +36,10 @@ function usuario_registrar($email,$clave){
     global $con ;
     $rol = "usuario" ;
 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "La dirección ingresada no es una dirección de correo ($email) válida.";
+    }
+
     if( usuario_existe($email) > 0 ){
         echo "El usuario ya existe" ;
         return ;
