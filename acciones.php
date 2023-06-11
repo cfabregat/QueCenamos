@@ -41,6 +41,7 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
             $idplato = $_POST['idplato'] ;
 
             eliminar_publicacion( $idplato ) ;
+            eliminar_calificaciones( $idplato ) ;
         }
 
 
