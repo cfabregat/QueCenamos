@@ -90,10 +90,13 @@ function publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubica
     $nombre = mysqli_escape_string($con, $nombre);
     $descripcion = mysqli_escape_string($con, $descripcion);
     $precio = mysqli_escape_string($con, $precio);
+
     $foto_archivo  = $fotos_carpeta . $_SESSION['idusuario'] . basename($_FILES["foto"]["name"]) ;
+    $foto_archivo = mysqli_escape_string($con, $foto_archivo);
+
     $calificacion = mysqli_escape_string($con, $calificacion);
 
-    $sql = "INSERT INTO platos (idplato, idusuario, nombre, descripcion, foto, precio, fecha, ubicacion) VALUES (NULL, $idusuario, '$nombre', '$descripcion', '$foto_archivo', '$precio', '$fecha', '$ubicacion');" ;
+    $sql = "INSERT INTO platos (idplato, idusuario, nombre, descripcion, foto, precio, fecha, ubicacion) VALUES (NULL, $idusuario, '$nombre', '$descripcion', '$foto_archivo', $precio, '$fecha', '$ubicacion');" ;
     mysqli_query( $con, $sql );
     $idplato = $con->insert_id ;
 

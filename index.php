@@ -137,17 +137,29 @@
         <th>Publicaci&oacute;n</th>
         <th>Recomendar</th>
     </tr>
+<?php
+    global $con ;
+    
+    mysql_conectar() ;
+    $sql = "SELECT * FROM platos WHERE idusuario=" . $_SESSION['idusuario'] . ";" ;
+    $rec = mysqli_query( $con, $sql );
+    while( $reg = mysqli_fetch_assoc($rec) ){
+?>
     <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td><?php echo $reg['nombre'] ; ?></td>
+        <td><?php echo $reg['descripcion'] ; ?></td>
+        <td><img src="<?php echo $reg['foto'] ; ?>"></td>
+        <td><?php echo $reg['precio'] ; ?></td>
+        <td><?php echo $reg['fecha'] ; ?></td>
+        <td><?php echo $reg['ubicacion'] ; ?></td>
         <td>Promedio MiCalificaci&oacute;n <button>ReCalificar</button></td>
         <td><button>Eliminar Publicaci&oacute;n</button></td>
         <td><input type="text" value="Email a quien recomendar"><button>Enviar recomendaci&oacute;n</button>
     </tr>
+<?php
+            }
+    mysql_desconectar() ;
+?>
 </table>
 
 <br /><hr />
