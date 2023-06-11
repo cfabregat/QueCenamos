@@ -132,7 +132,13 @@ function calificaciones_promedio( $idplato ){
 }
 
 function eliminar_publicacion( $idplato ){
-
+    global $con ;
+    
+    mysql_conectar() ;
+    $idplato = mysqli_escape_string($con, $idplato);
+    $sql = "DELETE FROM platos WHERE idplato='$idplato';" ;
+    $rec = mysqli_query( $con, $sql );
+    mysql_desconectar() ;
 }
 
 ?>
