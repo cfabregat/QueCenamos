@@ -14,6 +14,11 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
             $clave = $_POST['clave'] ;
             $clave2 = $_POST['clave2'] ;
 
+            if( strlen($clave) == 0 ){
+                echo "No puede tener clave nula" ;
+                return ;
+                }
+
             if( $clave != $clave2 )
                 echo "Las claves ingresadas no corresponden" ;
             else
