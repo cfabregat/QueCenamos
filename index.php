@@ -79,7 +79,7 @@
 
 
 <h2>Busque el plato por nombre o ti&eacute;ntese con una foto</h2>
-
+<form action="index.php" method="post" enctype="multipart/form-data">
 <table border="1" align="center">
     <tr>
         <td><p align="center">Plato a buscar</p></td>
@@ -88,12 +88,12 @@
     <tr>
         <td>
             <form> 
-                <input type="text"><br /><input type="submit" value="Buscar">
+                <input type="text" name="buscar"><br /><input type="submit" value="Buscar">
             </form>
         </td>
         <td>
             <p align="center" style="border: red 5px solid">Foto</p>
-            <p align='center'><button onclick="">Voy a tener suerte</button><br / >
+            <p align='center'><input type="submit" value="Voy a tener suerte"><br / >
             Haga click sobre la foto cuando quiera ese plato</p>
         </td>
     </tr>
@@ -112,17 +112,32 @@
     <th>Calificaci&oacute;n</th>
     <th>Mi Calificaci&oacute;n<br />(solo usuario registrado)</th>
     </tr>
+<?php
+global $con ;
+
+$buscar = isset($_POST['buscar']) ? $_POST['buscar'] : '';
+
+mysql_conectar() ;
+$sql = "SELECT * FROM platos WHERE nombre LIKE '%" . $buscar . "%' OR descripcion LIKE '%" . $buscar . "%';" ;
+$rec = mysqli_query( $con, $sql );
+while( $reg = mysqli_fetch_assoc($rec) ){
+    $idplato = $reg['idplato'] ;
+?>
     <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>        
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>Promedio</td>
+        <td><?php echo $reg['nombre'] ; ?></td>
+        <td><?php echo $reg['descripcion'] ; ?></td>        
+        <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
+        <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
+        <td><?php echo $reg['fecha'] ; ?></td>
+        <td><?php echo $reg['ubicacion'] ; ?></td>
+        <td align="center"><?php echo calificaciones_promedio($idplato); ?></td>
         <td>MiCalificaci&oacute;n <button>ReCalificar</button><button>Eliminar Calificacion</button></td>
     </tr>
+<?php  
+    }
+?>
 </table>
+</form>
 
 <br /><hr />
 
