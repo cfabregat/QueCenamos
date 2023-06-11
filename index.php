@@ -109,8 +109,7 @@
     <th>Precio</th>
     <th>Fecha</th>
     <th>Ubicaci&oacute;n<br />(solo usuario registrado)</th>
-    <th>Calificaci&oacute;n</th>
-    <th>Mi Calificaci&oacute;n<br />(solo usuario registrado)</th>
+    <th>Calificaci&oacute;n<br />Promedio / MiCalificacion</th>
     </tr>
 <?php
 global $con ;
@@ -130,8 +129,7 @@ while( $reg = mysqli_fetch_assoc($rec) ){
         <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
         <td><?php echo $reg['fecha'] ; ?></td>
         <td><?php echo $reg['ubicacion'] ; ?></td>
-        <td align="center"><?php echo calificaciones_promedio($idplato); ?></td>
-        <td>MiCalificaci&oacute;n <button>ReCalificar</button><button>Eliminar Calificacion</button></td>
+        <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
     </tr>
 <?php  
     }
