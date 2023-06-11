@@ -2,7 +2,7 @@
     session_start() ;
 
     date_default_timezone_set('America/Argentina/Buenos_Aires') ;
-    
+
     $_SESSION['rol'] = 'usuario' ;
 
     require( 'funciones.php' ) ;
@@ -158,7 +158,7 @@ if( isset($_SESSION['email']) ){
     <tr>
         <td><?php echo $reg['nombre'] ; ?></td>
         <td><?php echo $reg['descripcion'] ; ?></td>
-        <td><img src="<?php echo $reg['foto'] ; ?>"></td>
+        <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
         <td><?php echo $reg['precio'] ; ?></td>
         <td><?php echo $reg['fecha'] ; ?></td>
         <td><?php echo $reg['ubicacion'] ; ?></td>
