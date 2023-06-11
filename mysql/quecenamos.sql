@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2023 a las 04:00:02
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 11-06-2023 a las 05:18:30
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,38 +32,16 @@ CREATE TABLE `calificaciones` (
   `idusuario` int(10) UNSIGNED NOT NULL,
   `idplato` int(10) UNSIGNED NOT NULL,
   `calificacion` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `calificaciones`
 --
 
 INSERT INTO `calificaciones` (`idcalificacion`, `idusuario`, `idplato`, `calificacion`) VALUES
-(1, 2, 1, 5),
-(2, 6, 8, 3),
-(3, 6, 9, 5),
-(4, 6, 10, 3),
-(5, 6, 11, 5),
-(6, 6, 12, 1),
-(7, 6, 13, 1),
-(8, 6, 14, 3),
-(9, 6, 15, 3),
-(10, 6, 16, 0),
-(11, 6, 17, 0),
-(12, 6, 18, 0),
-(13, 6, 19, 0),
-(14, 6, 20, 3),
-(15, 6, 21, 3),
-(16, 6, 22, 3),
-(17, 6, 23, 3),
-(18, 6, 24, 3),
-(19, 6, 25, 3),
-(20, 6, 26, 3),
-(21, 6, 27, 3),
-(22, 6, 28, 3),
-(23, 6, 29, 3),
-(24, 6, 30, 3),
-(25, 6, 31, 3);
+(31, 41, 37, 5),
+(32, 41, 38, 3),
+(33, 41, 39, 4);
 
 -- --------------------------------------------------------
 
@@ -80,27 +58,30 @@ CREATE TABLE `platos` (
   `precio` decimal(10,2) NOT NULL,
   `fecha` datetime DEFAULT NULL,
   `ubicacion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `platos`
 --
 
 INSERT INTO `platos` (`idplato`, `idusuario`, `nombre`, `descripcion`, `foto`, `precio`, `fecha`, `ubicacion`) VALUES
-(14, 6, 'Nombre', 'Descripcion', '', 0.00, '2023-06-10 16:52:00', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(15, 6, 'Nombre', 'Descripcion', '', 0.00, '2023-06-10 16:52:00', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(20, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php3E29.tmp', 0.00, '2023-06-10 16:54:51', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(21, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php6B64.tmp', 0.00, '2023-06-10 16:54:51', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(22, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php990.tmp', 0.00, '2023-06-10 17:01:21', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(23, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php6E94.tmp', 0.00, '2023-06-10 17:01:21', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(24, 6, 'Nombre', 'Descripcion', 'fotos/6sibilia-paula-el-hombre-postorganico.pdf', 0.00, '2023-06-10 17:03:50', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(25, 6, 'Nombre', 'Descripcion', 'fotos/6', 0.00, '2023-06-11 03:44:17', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(26, 6, 'Nombre', 'Descripcion', 'fotos/6app.ts', 0.00, '2023-06-11 03:46:53', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(27, 6, 'Nombre', 'Descripcion', 'fotos/6tca-desconsolidado-cierre-web-WL-PRD-22-31m', 0.00, '2023-06-11 03:47:02', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(28, 6, 'Nombre', 'Descripcion', 'fotos/6Notas Primer Parcial 1er2023.xlsx', 0.00, '2023-06-11 03:48:45', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(29, 6, 'Nombre', 'Descripcion', 'fotos/6RADIANDO 004.pdf', 0.00, '2023-06-11 03:49:18', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(30, 6, 'Nombre', 'Descripcion', 'fotos/6O\'Reilly Git Pocket Guide 2013.pdf', 0.00, '2023-06-11 03:50:46', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(31, 6, 'Nombre', 'Descripcion', 'fotos/6O\'Reilly Git Pocket Guide 2013.pdf', 0.00, '2023-06-11 03:51:26', 'Nombre<br />Direccion<br />Telefono<br />Red Social');
+(14, 6, 'Nombre', 'Descripcion', '', '0.00', '2023-06-10 16:52:00', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(15, 6, 'Nombre', 'Descripcion', '', '0.00', '2023-06-10 16:52:00', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(20, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php3E29.tmp', '0.00', '2023-06-10 16:54:51', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(21, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php6B64.tmp', '0.00', '2023-06-10 16:54:51', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(22, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php990.tmp', '0.00', '2023-06-10 17:01:21', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(23, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php6E94.tmp', '0.00', '2023-06-10 17:01:21', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(24, 6, 'Nombre', 'Descripcion', 'fotos/6sibilia-paula-el-hombre-postorganico.pdf', '0.00', '2023-06-10 17:03:50', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(25, 6, 'Nombre', 'Descripcion', 'fotos/6', '0.00', '2023-06-11 03:44:17', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(26, 6, 'Nombre', 'Descripcion', 'fotos/6app.ts', '0.00', '2023-06-11 03:46:53', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(27, 6, 'Nombre', 'Descripcion', 'fotos/6tca-desconsolidado-cierre-web-WL-PRD-22-31m', '0.00', '2023-06-11 03:47:02', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(28, 6, 'Nombre', 'Descripcion', 'fotos/6Notas Primer Parcial 1er2023.xlsx', '0.00', '2023-06-11 03:48:45', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(29, 6, 'Nombre', 'Descripcion', 'fotos/6RADIANDO 004.pdf', '0.00', '2023-06-11 03:49:18', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(30, 6, 'Nombre', 'Descripcion', 'fotos/6O\'Reilly Git Pocket Guide 2013.pdf', '0.00', '2023-06-11 03:50:46', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(31, 6, 'Nombre', 'Descripcion', 'fotos/6O\'Reilly Git Pocket Guide 2013.pdf', '0.00', '2023-06-11 03:51:26', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(37, 41, 'Big Pensilvania Burger', 'Hamburguesa con doble pati, queso chedar, pepinos y salsa', 'fotos/41hamburguesa.jpg', '1600.00', '2023-06-10 23:52:25', 'American Burger<br />Aristobulo del Valle 1609<br />Telefono<br />americanburgerok'),
+(38, 41, 'Michigan Burger', 'Hamburguesa con huevo, queso dambo, cebolla morada y morrón salteado', 'fotos/41hamburguesaMichigan.jpg', '1800.00', '2023-06-10 23:55:00', 'American Burger<br />Aristobulo del Valle 1609<br />Telefono<br />americanburgerok'),
+(39, 41, 'Helado', '1 kilo de helado', 'fotos/41heladoGrido.png', '1200.00', '2023-06-10 23:57:55', 'Grido<br />Av. Regimiento de los patricios 502<br />Telefono<br />http://www.gridohelado.com');
 
 -- --------------------------------------------------------
 
@@ -113,14 +94,7 @@ CREATE TABLE `recomendaciones` (
   `idusuario` int(10) UNSIGNED NOT NULL,
   `idplato` int(10) UNSIGNED NOT NULL,
   `idusuario_a_recomnedar` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `recomendaciones`
---
-
-INSERT INTO `recomendaciones` (`idrecomendar`, `idusuario`, `idplato`, `idusuario_a_recomnedar`) VALUES
-(1, 2, 1, 3);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,7 +107,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) NOT NULL,
   `clave` varchar(25) NOT NULL,
   `rol` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -141,12 +115,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`idusuario`, `email`, `clave`, `rol`) VALUES
 (2, 'cmfabregat@gmail.com', '1234', 'admin'),
-(3, 'claudiachauque9@gmail.com', '1234', 'admin'),
 (6, 'cfabregat@webrecursos.com.ar', 'asdf', 'usuario'),
 (30, 'boschagustina@gmail.com', '1', 'usuario'),
 (38, 'a', 'a', 'usuario'),
 (39, 'v', 'f', 'usuario'),
-(40, 'ifabregat04@gmail.com', 'a', 'usuario');
+(40, 'ifabregat04@gmail.com', 'a', 'usuario'),
+(41, 'claudiachauque9@gmail.com', '1234', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -184,13 +158,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `idcalificacion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idcalificacion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `platos`
 --
 ALTER TABLE `platos`
-  MODIFY `idplato` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idplato` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `recomendaciones`
@@ -202,7 +176,7 @@ ALTER TABLE `recomendaciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
