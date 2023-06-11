@@ -138,6 +138,13 @@ function eliminar_publicacion( $idplato ){
     $idplato = mysqli_escape_string($con, $idplato);
     $sql = "DELETE FROM platos WHERE idplato='$idplato';" ;
     $rec = mysqli_query( $con, $sql );
+
+    $sql = "DELETE FROM calificaciones WHERE idplato='$idplato';" ;
+    $rec = mysqli_query( $con, $sql );
+
+    $sql = "DELETE FROM recomendaciones WHERE idplato='$idplato';" ;
+    $rec = mysqli_query( $con, $sql );
+
     mysql_desconectar() ;
 }
 
