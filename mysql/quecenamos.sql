@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2023 a las 03:40:09
+-- Tiempo de generación: 11-06-2023 a las 04:00:02
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -56,7 +56,14 @@ INSERT INTO `calificaciones` (`idcalificacion`, `idusuario`, `idplato`, `calific
 (15, 6, 21, 3),
 (16, 6, 22, 3),
 (17, 6, 23, 3),
-(18, 6, 24, 3);
+(18, 6, 24, 3),
+(19, 6, 25, 3),
+(20, 6, 26, 3),
+(21, 6, 27, 3),
+(22, 6, 28, 3),
+(23, 6, 29, 3),
+(24, 6, 30, 3),
+(25, 6, 31, 3);
 
 -- --------------------------------------------------------
 
@@ -86,7 +93,14 @@ INSERT INTO `platos` (`idplato`, `idusuario`, `nombre`, `descripcion`, `foto`, `
 (21, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php6B64.tmp', 0.00, '2023-06-10 16:54:51', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
 (22, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php990.tmp', 0.00, '2023-06-10 17:01:21', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
 (23, 6, 'Nombre', 'Descripcion', 'C:\\xampp\\tmp\\php6E94.tmp', 0.00, '2023-06-10 17:01:21', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
-(24, 6, 'Nombre', 'Descripcion', 'fotos/6sibilia-paula-el-hombre-postorganico.pdf', 0.00, '2023-06-10 17:03:50', 'Nombre<br />Direccion<br />Telefono<br />Red Social');
+(24, 6, 'Nombre', 'Descripcion', 'fotos/6sibilia-paula-el-hombre-postorganico.pdf', 0.00, '2023-06-10 17:03:50', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(25, 6, 'Nombre', 'Descripcion', 'fotos/6', 0.00, '2023-06-11 03:44:17', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(26, 6, 'Nombre', 'Descripcion', 'fotos/6app.ts', 0.00, '2023-06-11 03:46:53', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(27, 6, 'Nombre', 'Descripcion', 'fotos/6tca-desconsolidado-cierre-web-WL-PRD-22-31m', 0.00, '2023-06-11 03:47:02', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(28, 6, 'Nombre', 'Descripcion', 'fotos/6Notas Primer Parcial 1er2023.xlsx', 0.00, '2023-06-11 03:48:45', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(29, 6, 'Nombre', 'Descripcion', 'fotos/6RADIANDO 004.pdf', 0.00, '2023-06-11 03:49:18', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(30, 6, 'Nombre', 'Descripcion', 'fotos/6O\'Reilly Git Pocket Guide 2013.pdf', 0.00, '2023-06-11 03:50:46', 'Nombre<br />Direccion<br />Telefono<br />Red Social'),
+(31, 6, 'Nombre', 'Descripcion', 'fotos/6O\'Reilly Git Pocket Guide 2013.pdf', 0.00, '2023-06-11 03:51:26', 'Nombre<br />Direccion<br />Telefono<br />Red Social');
 
 -- --------------------------------------------------------
 
@@ -130,7 +144,9 @@ INSERT INTO `usuarios` (`idusuario`, `email`, `clave`, `rol`) VALUES
 (3, 'claudiachauque9@gmail.com', '1234', 'admin'),
 (6, 'cfabregat@webrecursos.com.ar', 'asdf', 'usuario'),
 (30, 'boschagustina@gmail.com', '1', 'usuario'),
-(38, 'a', 'a', 'usuario');
+(38, 'a', 'a', 'usuario'),
+(39, 'v', 'f', 'usuario'),
+(40, 'ifabregat04@gmail.com', 'a', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -168,13 +184,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `idcalificacion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idcalificacion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `platos`
 --
 ALTER TABLE `platos`
-  MODIFY `idplato` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idplato` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `recomendaciones`
@@ -186,7 +202,7 @@ ALTER TABLE `recomendaciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idusuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
