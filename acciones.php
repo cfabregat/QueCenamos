@@ -36,7 +36,7 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
             publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto, $calificacion ) ;
         }
 
-        if( isset($_POST['accion']) && $_POST['accion']=="eliminar_publicacion" )
+    if( isset($_POST['accion']) && $_POST['accion']=="Eliminar Publicacion" )
         {
             $idplato = $_POST['idplato'] ;
 

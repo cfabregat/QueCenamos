@@ -148,4 +148,22 @@ function eliminar_publicacion( $idplato ){
     mysql_desconectar() ;
 }
 
+function calificacion($idusuario,$idplato){
+    global $con ;
+    $calificacion = 0;
+
+    mysql_conectar() ;
+    $idusuario = mysqli_escape_string($con, $idusuario);
+    $idplato = mysqli_escape_string($con, $idplato);
+    $sql = "SELECT calificacion FROM calificaciones WHERE idusuario=" . $idusuario . " AND idplato=" . $idplato . ";" ;
+    $rec = mysqli_query( $con, $sql );
+    if( mysqli_num_rows($rec) > 0 ){
+        $reg = mysqli_fetch_assoc($rec) ;
+        $calificacion = $reg['calificacion'] ;
+        }
+    //mysql_desconectar() ;
+
+    return( $calificacion ) ;  
+}
+
 ?>

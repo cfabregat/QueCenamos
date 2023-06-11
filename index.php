@@ -133,7 +133,6 @@ if( isset($_SESSION['email']) ){
 <h2>Mis Publicaciones</h2>
 <br>
 <form action="index.php" method="post" enctype="multipart/form-data">
-<input type="hidden" name="accion" value="eliminar_publicacion">
 <table align="center" border="1">
     <tr>
         <th>Plato</th>
@@ -142,7 +141,7 @@ if( isset($_SESSION['email']) ){
         <th>Precio</th>
         <th>Fecha</th>
         <th>Ubicaci&oacute;n</th>
-        <th>Calificaci&oacute;n</th>
+        <th>Calificaci&oacute;n<br />Promedio / MiCalificacion</th>
         <th>Publicaci&oacute;n</th>
         <th>Recomendar</th>
     </tr>
@@ -162,9 +161,9 @@ if( isset($_SESSION['email']) ){
         <td><?php echo $reg['precio'] ; ?></td>
         <td><?php echo $reg['fecha'] ; ?></td>
         <td><?php echo $reg['ubicacion'] ; ?></td>
-        <td>Promedio <?php echo calificaciones_promedio($idplato); ?> <button>ReCalificar</button></td>
-        <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="eliminar_publicacion" value="Eliminar Publicacion"></td>
-        <td><input type="text" value="Email a quien recomendar"><button>Enviar recomendaci&oacute;n</button>
+        <td><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?> <button>ReCalificar</button></td>
+        <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion"></td>
+        <td><input type="text" name="email_recomendar" value="Email a quien recomendar"><input type="submit" name="accion" value="Enviar Recomendacion">
     </tr>
 <?php
             }
