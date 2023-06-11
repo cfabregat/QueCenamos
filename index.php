@@ -75,6 +75,7 @@
 
 <hr /> 
 
+
 <h2>Busque el plato por nombre o ti&eacute;ntese con una foto</h2>
 
 <table border="1" align="center">
@@ -123,6 +124,10 @@
 
 <br /><hr />
 
+<?php
+if( isset($_SESSION['email']) ){
+?>
+
 <h2>Mis Publicaciones</h2>
 <br>
 <table align="center" border="1">
@@ -162,7 +167,15 @@
 ?>
 </table>
 
+<?php
+}
+?>
+
 <br /><hr />
+
+<?php
+if( isset($_SESSION['email']) ){
+?>
 
 <h2>Recomendaciones de otros usuarios</h2>
 <table align="center" border="1">
@@ -192,7 +205,16 @@
 </tr>
 </table>
 
+<?php
+}
+?>
+
 <br /><hr />
+
+<?php
+if( isset($_SESSION['email']) ){
+?>
+
 
 <h2>Publicar plato</h2>
     <table align='center' border='1'>
@@ -225,5 +247,10 @@
             </td>
         </tr>
     </table>
+
+<?php
+}
+?>
+
 </body>
 </html>
