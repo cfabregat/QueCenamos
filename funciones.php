@@ -166,4 +166,19 @@ function calificacion($idusuario,$idplato){
     return( $calificacion ) ;  
 }
 
+function foto_aleatoria(){
+    global $con ;
+
+    mysql_conectar() ;
+    $sql = "SELECT idplato,foto FROM platos ORDER BY RAND();" ;
+    $rec = mysqli_query( $con, $sql );
+    if( mysqli_num_rows($rec) > 0 ){
+        $reg = mysqli_fetch_assoc($rec) ;
+        return( array($reg['idplato'], $reg['foto']) );
+        }
+    //mysql_desconectar() ;
+
+    return( array(NULL,NULL) ) ;
+}
+
 ?>

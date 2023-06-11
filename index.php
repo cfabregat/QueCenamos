@@ -80,27 +80,32 @@
 
 <h2>Busque el plato por nombre o ti&eacute;ntese con una foto</h2>
 <form action="index.php" method="post" enctype="multipart/form-data">
+<?php
+    $res = foto_aleatoria() ;
+    $idplato = $res[0] ;
+    $foto = $res[1] ;
+?>
 <table border="1" align="center">
     <tr>
-        <td><p align="center">Plato a buscar</p></td>
-        <td><p align="center">Buscar por foto</p></td>
+        <td><p align="center">Buscar por Nombre o Descripci&oacute;n</p></td>
+        <td><p align="center">Buscar por foto<br />(haga click sobre la foto cuando quiera ese plato)</p></td>
     </tr>
     <tr>
         <td>
             <form> 
-                <input type="text" name="buscar"><br /><input type="submit" value="Buscar">
+            <br />
+            <p align='center'><input type="text" name="buscar"><br /><input type="submit" value="Buscar"></p>
             </form>
         </td>
         <td>
-            <p align="center" style="border: red 5px solid">Foto</p>
-            <p align='center'><input type="submit" value="Voy a tener suerte"><br / >
-            Haga click sobre la foto cuando quiera ese plato</p>
+        <p align='center'><img width="175" height="115" src="<?php echo $foto ; ?>"></p>
+        <p align='center'><input type="submit" value="Voy a tener suerte"></p>
         </td>
     </tr>
-
 </table>
 
-<h4><p align="center">Resultado de Busqueda</p></h4>
+<br />
+
 <table border="1" align="center">
     <tr>
     <th>Plato</th>
