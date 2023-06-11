@@ -130,6 +130,8 @@ if( isset($_SESSION['email']) ){
 
 <h2>Mis Publicaciones</h2>
 <br>
+<form action="index.php" method="post" enctype="multipart/form-data">
+<input type="hidden" name="accion" value="eliminar_publicacion">
 <table align="center" border="1">
     <tr>
         <th>Plato</th>
@@ -149,6 +151,7 @@ if( isset($_SESSION['email']) ){
     $sql = "SELECT * FROM platos WHERE idusuario=" . $_SESSION['idusuario'] . ";" ;
     $rec = mysqli_query( $con, $sql );
     while( $reg = mysqli_fetch_assoc($rec) ){
+        $idplato = $reg['idplato'] ;
 ?>
     <tr>
         <td><?php echo $reg['nombre'] ; ?></td>
@@ -157,8 +160,8 @@ if( isset($_SESSION['email']) ){
         <td><?php echo $reg['precio'] ; ?></td>
         <td><?php echo $reg['fecha'] ; ?></td>
         <td><?php echo $reg['ubicacion'] ; ?></td>
-        <td>Promedio MiCalificaci&oacute;n <button>ReCalificar</button></td>
-        <td><button>Eliminar Publicaci&oacute;n</button></td>
+        <td>Promedio <?php echo calificaciones_promedio($idplato); ?> <button>ReCalificar</button></td>
+        <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="eliminar_publicacion" value="Eliminar Publicacion"></td>
         <td><input type="text" value="Email a quien recomendar"><button>Enviar recomendaci&oacute;n</button>
     </tr>
 <?php
@@ -166,6 +169,7 @@ if( isset($_SESSION['email']) ){
     mysql_desconectar() ;
 ?>
 </table>
+</form>
 
 <?php
 }

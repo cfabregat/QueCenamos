@@ -20,7 +20,7 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
                 usuario_registrar( $email, $clave ) ;
         }
 
-        if( isset($_POST['accion']) && $_POST['accion']=="publicar" )
+    if( isset($_POST['accion']) && $_POST['accion']=="publicar" )
         {
             $fecha = $_POST['fecha'] ;
             $ubicacion_nombre = $_POST['ubicacion_nombre'] ;
@@ -35,5 +35,14 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
 
             publicar_plato( $fecha, $ubicacion_nombre, $ubicacion_direccion, $ubicacion_telefono, $ubicacion_redsocial, $nombre, $descripcion, $precio, $foto, $calificacion ) ;
         }
+
+        if( isset($_POST['accion']) && $_POST['accion']=="eliminar_publicacion" )
+        {
+            $idplato = $_POST['idplato'] ;
+
+            echo "eliminando publicacion" ;
+            eliminar_publicacion( $idplato ) ;
+        }
+
 
 ?>

@@ -119,16 +119,20 @@ function calificaciones_promedio( $idplato ){
     $promedio = 0 ;
     
     mysql_conectar() ;
-    $email = mysqli_escape_string($con, $email);
-    $sql = "SELECT AVG(calificacion) promedio FROM calificaciones WHERE idplato=" . $idplato . ";" ;
+    $idplato = mysqli_escape_string($con, $idplato);
+    $sql = "SELECT ROUND(AVG(calificacion),0) promedio FROM calificaciones WHERE idplato=" . $idplato . ";" ;
     $rec = mysqli_query( $con, $sql );
     if( mysqli_num_rows($rec) > 0 ){
         $reg = mysqli_fetch_assoc($rec) ;
         $promedio = $reg['promedio'] ;
         }
-    mysql_desconectar() ;
+    //mysql_desconectar() ;
 
     return( $promedio ) ;
+}
+
+function eliminar_publicacion( $idplato ){
+
 }
 
 ?>
