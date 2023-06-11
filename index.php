@@ -158,10 +158,10 @@ if( isset($_SESSION['email']) ){
         <td><?php echo $reg['nombre'] ; ?></td>
         <td><?php echo $reg['descripcion'] ; ?></td>
         <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
-        <td><?php echo $reg['precio'] ; ?></td>
+        <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
         <td><?php echo $reg['fecha'] ; ?></td>
         <td><?php echo $reg['ubicacion'] ; ?></td>
-        <td><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?> <button>ReCalificar</button></td>
+        <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
         <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion"></td>
         <td><input type="text" name="email_recomendar" value="Email a quien recomendar"><input type="submit" name="accion" value="Enviar Recomendacion">
     </tr>
