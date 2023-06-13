@@ -84,16 +84,16 @@
   <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="buscarPlato-tab" data-bs-toggle="tab" data-bs-target="#buscarPlato" type="button" role="tab" aria-controls="buscarPlato" aria-selected="true">buscarPlato</button>
+        <button class="nav-link active" id="buscarPlato-tab" data-bs-toggle="tab" data-bs-target="#buscarPlato" type="button" role="tab" aria-controls="buscarPlato" aria-selected="true">Buscar</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="misPublicaciones-tab" data-bs-toggle="tab" data-bs-target="#misPublicaciones" type="button" role="tab" aria-controls="misPublicaciones" aria-selected="false">misPublicaciones</button>
+        <button class="nav-link" id="misPublicaciones-tab" data-bs-toggle="tab" data-bs-target="#misPublicaciones" type="button" role="tab" aria-controls="misPublicaciones" aria-selected="false">Mis publicaciones</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="recomendaciones-tab" data-bs-toggle="tab" data-bs-target="#recomendaciones" type="button" role="tab" aria-controls="recomendaciones" aria-selected="false">recomendaciones</button>
+        <button class="nav-link" id="recomendaciones-tab" data-bs-toggle="tab" data-bs-target="#recomendaciones" type="button" role="tab" aria-controls="recomendaciones" aria-selected="false">Recomendaciones</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="publicarPlato-tab" data-bs-toggle="tab" data-bs-target="#publicarPlato" type="button" role="tab" aria-controls="publicarPlato" aria-selected="false">publicarPlato</button>
+        <button class="nav-link" id="publicarPlato-tab" data-bs-toggle="tab" data-bs-target="#publicarPlato" type="button" role="tab" aria-controls="publicarPlato" aria-selected="false">Publicar</button>
       </li>
     </ul>
 
