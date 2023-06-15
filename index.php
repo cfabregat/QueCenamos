@@ -103,6 +103,28 @@
             }
         ?>
 
+        <!-- INICIO BOTON CERRAR SESION  -->
+            <?php  
+                //  Si esta logeado muestro la parte de registrar
+                if( isset($_SESSION['email']) ){
+            ?>
+            <button onclick="window.location='/logout.php'"">Cerrar Session</button>
+            <br />
+            <button onclick="window.location='/cambiar_clave.php'"">Cambiar clave</button>
+            <br />
+            <?php
+                if( $_SESSION['rol'] == 'gestion' ){
+            ?>
+                <button onclick="window.location='/gestion.php'"">Vista de Gestion</button>        
+            <?php
+                }       
+            ?>
+
+            <?php
+                }       
+            ?>
+        <!-- FIN BOTON CERRAR SESION -->
+
     <!-- FIN DEL LOGIN -->
     </div>
 </div>
@@ -313,10 +335,10 @@
                         <input type="hidden" name="accion" value="publicar">
                         Fecha<input type="text" name="fecha" value="<?php echo date('Y-m-d H:i:s'); ?>"><br />
                         Ubicación: 
-                            <input type="text" name="ubicacion_nombre" value="Nombre">
-                            <input type="text" name="ubicacion_direccion" value="Direccion">
-                            <input type="text" name="ubicacion_telefono" value="Telefono">
-                            <input type="text" name="ubicacion_redsocial" value="Red Social"><br />
+                            <input type="text" name="ubicacion_nombre" placeholder="Nombre">
+                            <input type="text" name="ubicacion_direccion" placeholder="Direccion">
+                            <input type="text" name="ubicacion_telefono" placeholder="Telefono">
+                            <input type="text" name="ubicacion_redsocial" placeholder="Red Social"><br />
                         Plato: 
                             <input type="text" name="nombre" value="Nombre">
                             <input type="text" name="descripcion" value="Descripcion">
