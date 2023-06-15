@@ -23,6 +23,10 @@
     <!-- INICIO DEL LOGIN -->
         <!-- INICIAR SESION -->
         <!-- Button trigger modal -->
+        <?php  
+                            //  Si no esta logeado muestro la parte de registrar
+                            if( !isset($_SESSION['email']) ){
+        ?>
         <button type="button" class="btn btn-primary btnIngresoDeUsuario" data-bs-toggle="modal" data-bs-target="#iniciarSesion">
           Iniciar sesión
         </button>
@@ -36,10 +40,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <?php  
-                            //  Si no esta logeado muestro la parte de registrar
-                            if( !isset($_SESSION['email']) ){
-                        ?>
+
                             <form action="index.php" method="post">
                             <input type="hidden" name="accion" value="login">
                             Email:<input type="text" name="email"><br />
@@ -47,9 +48,6 @@
                             <input type="submit" value="Ingresar">
                             <button onclick="window.location='/clave.php'">Olvide la contrase&ntilde;a</button>
                             </form>
-                        <?php
-                            }
-                        ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -58,10 +56,19 @@
                 </div>
             </div>
         </div>
+        |
+        <?php
+            }
+        ?>
+
         <!-- FIN INICIAR SESION -->
-|
+
         <!-- INICIO DEL BOTON DE REGISTRO DE USUARIO -->
         <!-- Button trigger modal -->
+        <?php  
+            //  Si no esta logeado muestro la parte de registrar
+            if( !isset($_SESSION['email']) ){
+        ?>
         <button type="button" class="btn btn-primary btnIngresoDeUsuario" data-bs-toggle="modal" data-bs-target="#registrarUsuario">
           Registrarse
         </button>
@@ -75,10 +82,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <?php  
-                            //  Si no esta logeado muestro la parte de registrar
-                            if( !isset($_SESSION['email']) ){
-                        ?>
+
                             <form action="index.php" method="post">
                             <input type="hidden" name="accion" value="registro">
                             Email<input type="text" name="email"><br />
@@ -86,9 +90,6 @@
                             Repetir Clave: <input type="text" name="clave2"><br />
                             <input type="submit" value="Registrar Usuario">
                             </form>
-                        <?php
-                            }
-                        ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -98,6 +99,10 @@
             </div>
         </div>
       <!-- FIN DEL BOTON DE REGISTRO DE USUARIO -->
+      <?php
+            }
+        ?>
+
     <!-- FIN DEL LOGIN -->
     </div>
 </div>
