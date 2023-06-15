@@ -186,7 +186,13 @@
                         <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
                         <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
                         <td><?php echo $reg['fecha'] ; ?></td>
-                        <td><?php echo $reg['ubicacion'] ; ?></td>
+                        <td><?php 
+                            if( !isset($_SESSION['email']) )
+                                echo "&nbsp;" ;
+                            else   
+                                echo $reg['ubicacion'] ;
+                            ?>
+                        </td>
                         <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
                     </tr>
                     <?php  
