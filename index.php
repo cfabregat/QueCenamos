@@ -167,7 +167,7 @@
                         <th>Precio</th>
                         <th>Fecha</th>
                         <th>Ubicaci&oacute;n<br />(solo usuario registrado)</th>
-                        <th>Calificaci&oacute;n<br />Promedio / MiCalificacion</th>
+                        <th>Calificaci&oacute;n<br />Promedio <?php if( isset($_SESSION['email']) ) echo "/ MiCalificacion" ; ?></th>
                     </tr>
                     <?php
                     global $con ;
@@ -193,7 +193,7 @@
                                 echo $reg['ubicacion'] ;
                             ?>
                         </td>
-                        <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php if( isset($_SESSION['email']) ) echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                        <td align="center"><?php echo calificaciones_promedio($idplato); ?><?php if( isset($_SESSION['email']) ) echo " / " . calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
                     </tr>
                     <?php  
                         }
