@@ -193,7 +193,7 @@
                                 echo $reg['ubicacion'] ;
                             ?>
                         </td>
-                        <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                        <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php if( isset($_SESSION['email']) ) echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
                     </tr>
                     <?php  
                         }
