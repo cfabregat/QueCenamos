@@ -1,0 +1,97 @@
+*{
+    /* padding: 0; */
+    /* margin: 0; */
+}
+
+body{
+    background-image: url(../recursos/fondoPrueba.jpg);
+    background-repeat: no-repeat;
+
+    color:white;
+
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*      ESTILOS SECCION "Que cenamos" + Login     */
+
+.seccionPrincipal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 40%;
+}
+
+#h1QueCenamos{
+    font-size: 5.5rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#h4Usuario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.3em  0 0.7em 0;
+}
+
+.registroYLogin{
+    display: flex;
+    justify-content:space-around;
+
+}
+.modal-content{
+    color: black;
+}
+.modal-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btnIngresoDeUsuario{
+    background-color: transparent;
+    border: none;
+    margin: 0 2em;
+}
+.btnIngresoDeUsuario:hover{
+    background-color: transparent;
+    text-decoration: underline;
+}
+/* .btnIngresoDeUsuario:visited{
+    border: none;
+    background-color: aquamarine;
+}
+.btnIngresoDeUsuario:active{
+    border: none;
+    background-image: none;
+    background-color: transparent;
+} */
+
+/*          ESTILOS DE LAS TABS            */
+#myTab{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 0 0 2em  0 ;
+}
+
+#myTab li button{
+    color: white;
+}
+#myTab li .active {
+    color: black;
+}
+#myTab li button:hover{
+    background-color: rgba(255, 255, 255, 0.912);
+    color: black;
+    /* border: 1px solid white; */
+    border-bottom: none;
+
+}
+
