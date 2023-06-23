@@ -24,8 +24,8 @@
         <!-- INICIAR SESION -->
         <!-- Button trigger modal -->
         <?php  
-                            //  Si no esta logeado muestro la parte de registrar
-                            if( !isset($_SESSION['email']) ){
+            //  Si no esta logeado muestro la parte de registrar
+            if( !isset($_SESSION['email']) ){
         ?>
         <button type="button" class="btn btn-primary btnIngresoDeUsuario" data-bs-toggle="modal" data-bs-target="#iniciarSesion">
           Iniciar sesión

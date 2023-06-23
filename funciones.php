@@ -1,14 +1,24 @@
 <?php
 
+//  Servidor Local
+/*
+$mysql_server = '127.0.0.1' ;
 $mysql_usuario = 'root' ;
 $mysql_clave = '' ;
-$mysql_base = 'quecenamos' ;
+*/
+
+//  Servidor NUBE
+$mysql_server = 'www.webrecursos.com.ar' ;
+$mysql_usuario = 'quecenamos' ;
+$mysql_clave = 'cenamos123que' ;
+
+$mysql_base = 'QueCenamos' ;
 $con ;
 $fotos_carpeta = 'fotos/' ;
 
 function mysql_conectar(){
-    global $con, $mysql_usuario, $mysql_clave, $mysql_base ;
-    $con = mysqli_connect( '127.0.0.1', $mysql_usuario, $mysql_clave, $mysql_base) ;
+    global $con, $mysql_server, $mysql_usuario, $mysql_clave, $mysql_base ;
+    $con = mysqli_connect( $mysql_server, $mysql_usuario, $mysql_clave, $mysql_base) ;
 }
 function mysql_desconectar(){
     global $con ;
