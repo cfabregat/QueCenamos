@@ -1,2 +1,9 @@
 Página para el cambio de clave...
 VER
+
+--- CAMBIO DE CLAVE
+EMAIL
+CLAVE ACTUAL
+
+CLAVE NUEVA
+CLAVE NUEVA

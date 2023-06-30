@@ -222,6 +222,10 @@
                     ?>
                 </table>
             </form>
+            <hr>
+            <table>
+            <tr><td>ESPACIO PARA EL DATATABLES</td></tr>
+            </table>
             <br />
         </div>
 
@@ -295,8 +299,7 @@
                 <th>Fecha</th>
                 <th>Ubicaci&oacute;n</th>
                 <th>Calificaci&oacute;n</th>
-                <th>Mi Calificaci&oacute;n</th>
-                <th>Recomendar</th>
+                <th>&nbsp;</th>
                 </tr>
 
                 <tr>
@@ -307,8 +310,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td>Promedio</td>
-                <td>MiCalificacion <button>ReCalificar</button><button>Eliminar Calificacion</button></td>
+                <td>&nbsp;</td>
                 <td><button>Eliminar Recomendaci&oacute;nn</button></td>
                 </tr>
             </table>
