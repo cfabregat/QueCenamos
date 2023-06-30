@@ -18,15 +18,18 @@ body{
 .seccionPrincipal{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    height: 40%;
+    justify-content: space-around;
 }
 
 #h1QueCenamos{
-    font-size: 5.5rem;
+    font-size: 4.3rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.fotoLogo{
+    padding-right: 5%;
+    height: 5vw;
+
 }
 #h4Usuario{
     display: flex;
