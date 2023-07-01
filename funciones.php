@@ -191,4 +191,27 @@ function foto_aleatoria(){
     return( array(NULL,NULL) ) ;
 }
 
+function obtener_emails(){
+    global $con ;
+
+    mysql_conectar() ;
+    $sql = "SELECT email FROM usuarios GROUP BY email;" ;
+    $rec = mysqli_query( $con, $sql );
+    while( $reg = mysqli_fetch_assoc($rec) )
+        $emails[] = $reg['email'] ;
+
+    return( $emails );
+}
+
+function recomendacion_agregar( $idusuario, $idplato, $email_recomendar ){
+    global $con ;
+
+    mysql_conectar() ;
+    $idusuario = mysqli_escape_string($con, $idusuario);
+    $idplato = mysqli_escape_string($con, $idplato);
+    $email_recomendar = mysqli_escape_string($con, $email_recomendar);
+    $sql = "INSERT INTO recomendaciones (idrecomendar, idusuario, idplato, idusuario_a_recomendar) VALUES (NULL, '$idusuario', $idplato, '$email_recomendar');" ;
+    mysqli_query( $con, $sql );
+}
+
 ?>

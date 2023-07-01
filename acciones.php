@@ -48,4 +48,12 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
             eliminar_publicacion( $idplato ) ;
         }
 
+    if( isset($_POST['accion']) && $_POST['accion']=="Enviar Recomendacion" )
+        {
+            $idplato = $_POST['idplato'] ;
+            $email_recomendar = $_POST['email_recomendar'] ;
+
+            recomendacion_agregar( $_SESSION['idusuario'], $idplato, $email_recomendar ) ;
+        }
+
 ?>

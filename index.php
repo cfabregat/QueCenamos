@@ -268,7 +268,18 @@
                         <td><?php echo $reg['ubicacion'] ; ?></td>
                         <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
                         <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion"></td>
-                        <td><input type="text" name="email_recomendar" value="Email a quien recomendar"><input type="submit" name="accion" value="Enviar Recomendacion">
+                        <td>
+                                <select name="email_recomendar">
+                                <?php  
+                                    $emails = obtener_emails() ;
+                                    foreach( $emails as $e ){
+                                ?>
+                                <option value="<?php echo $e ; ?>"><?php echo $e ; ?></option>
+                                <?php  
+                                    }
+                                ?>
+                                </select>
+                                <input type="submit" name="accion" value="Enviar Recomendacion">
                     </tr>
                 <?php
                             }
