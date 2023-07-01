@@ -195,10 +195,10 @@ function obtener_emails(){
     global $con ;
 
     mysql_conectar() ;
-    $sql = "SELECT email FROM usuarios GROUP BY email;" ;
+    $sql = "SELECT idusuario, email FROM usuarios GROUP BY email ORDER BY email;" ;
     $rec = mysqli_query( $con, $sql );
     while( $reg = mysqli_fetch_assoc($rec) )
-        $emails[] = $reg['email'] ;
+        $emails[] = array( $reg['idusuario'], $reg['email'] ) ;
 
     return( $emails );
 }

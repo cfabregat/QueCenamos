@@ -272,9 +272,9 @@
                                 <select name="email_recomendar">
                                 <?php  
                                     $emails = obtener_emails() ;
-                                    foreach( $emails as $e ){
+                                    foreach( $emails as $v ){
                                 ?>
-                                <option value="<?php echo $e ; ?>"><?php echo $e ; ?></option>
+                                <option value="<?php echo $v[0] ; ?>"><?php echo $v[1] ; ?></option>
                                 <?php  
                                     }
                                 ?>
