@@ -205,7 +205,7 @@
                     <tr>
                         <td><?php echo $reg['nombre'] ; ?></td>
                         <td><?php echo $reg['descripcion'] ; ?></td>        
-                        <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
+                        <td><img width="175" height="115" src="<?php echo $reg['foto']=="" ? "/imagenes/sin_imagen.jpg" : $reg['foto']; ?>"></td>
                         <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
                         <td><?php echo $reg['fecha'] ; ?></td>
                         <td><?php 
