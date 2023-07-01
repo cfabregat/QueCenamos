@@ -214,4 +214,13 @@ function recomendacion_agregar( $idusuario, $idplato, $email_recomendar ){
     mysqli_query( $con, $sql );
 }
 
+function recomendacion_eliminar( $idrecomendar ){
+    global $con ;
+
+    mysql_conectar() ;
+    $idrecomendar = mysqli_escape_string($con, $idrecomendar);
+    $sql = "DELETE FROM recomendaciones WHERE idrecomendar='$idrecomendar';" ;
+    $rec = mysqli_query( $con, $sql );
+}
+
 ?>
