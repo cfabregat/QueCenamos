@@ -1,3 +1,14 @@
 form{
     padding: 13% 35%;
 }
+
+form button{
+    margin: 2%;
+    /* width: 8vw; */
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

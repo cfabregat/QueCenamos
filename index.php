@@ -46,7 +46,7 @@
                             Email:<input type="text" name="email"><br />
                             Clave:<input type="text" name="clave"><br />
                             <input type="submit" value="Ingresar">
-                            <button onclick="window.location='/clave.php'">Olvide la contrase&ntilde;a</button>
+                            <button onclick="window.location='/olvide_clave.php'">Olvide la contrase&ntilde;a</button>
                             </form>
                     </div>
                     <div class="modal-footer">
@@ -108,8 +108,8 @@
                 //  Si esta logeado muestro la parte de registrar
                 if( isset($_SESSION['email']) ){
             ?>
-            <button onclick="window.location='/logout.php'">Cerrar Session</button>
-            <br />
+            <button onclick="window.location='/logout.php'" class="btn btn-primary btnIngresoDeUsuario" data-bs-toggle="modal" data-bs-target="#cerrarSesion">Cerrar Sesion</button>
+            |
             <button onclick="window.location='/cambiar_clave.php'" class="btn btn-primary btnIngresoDeUsuario" data-bs-toggle="modal" data-bs-target="#cambiarClave">Cambiar clave</button>
             <br />
             <?php
