@@ -18,7 +18,7 @@
 
 <div class="seccionPrincipal">
     <h1 id="h1QueCenamos">¿Que Cenamos?<h4 id="h4Usuario"><?php echo isset($_SESSION['email'])? $_SESSION['email'] . ' ('. $_SESSION['idusuario'] . ')' :''; ?></h4></h1>
-        
+
     <div class="ingresoDeUsuario">
     <!-- INICIO DEL LOGIN -->
         <!-- INICIAR SESION -->
@@ -98,19 +98,19 @@
                 </div>
             </div>
         </div>
-      <!-- FIN DEL BOTON DE REGISTRO DE USUARIO -->
-      <?php
+        <!-- FIN DEL BOTON DE REGISTRO DE USUARIO -->
+        <?php
             }
         ?>
 
-        <!-- INICIO BOTON CERRAR SESION  -->
+        <!-- INICIO BOTON CERRAR SESION Y CAMBIAR CLAVE -->
             <?php  
                 //  Si esta logeado muestro la parte de registrar
                 if( isset($_SESSION['email']) ){
             ?>
-            <button onclick="window.location='/logout.php'"">Cerrar Session</button>
+            <button onclick="window.location='/logout.php'">Cerrar Session</button>
             <br />
-            <button onclick="window.location='/cambiar_clave.php'"">Cambiar clave</button>
+            <button onclick="window.location='/cambiar_clave.php'" class="btn btn-primary btnIngresoDeUsuario" data-bs-toggle="modal" data-bs-target="#cambiarClave">Cambiar clave</button>
             <br />
             <?php
                 if( $_SESSION['rol'] == 'gestion' ){
@@ -180,17 +180,20 @@
                 </table>
 
                 <br>
-            
-                <table border="1" align="center">
-                    <tr>
-                        <th>Plato</th>
-                        <th>Descripci&oacute;n</th>
-                        <th>Foto</th>
-                        <th>Precio</th>
-                        <th>Fecha</th>
-                        <th>Ubicaci&oacute;n<br />(solo usuario registrado)</th>
-                        <th>Calificaci&oacute;n<br />Promedio <?php if( isset($_SESSION['email']) ) echo "/ MiCalificacion" ; ?></th>
-                    </tr>
+                
+            <!-- TABLA -->
+                <table border="1" align="center" class="table align-middle table-bordered border-secondary">
+                    <thead class="align-middle text-center">
+                        <tr>
+                            <th>Plato</th>
+                            <th>Descripci&oacute;n</th>
+                            <th>Foto</th>
+                            <th>Precio</th>
+                            <th>Fecha</th>
+                            <th>Ubicaci&oacute;n<br />(solo usuario registrado)</th>
+                            <th>Calificaci&oacute;n<br />Promedio <?php if( isset($_SESSION['email']) ) echo "/ MiCalificacion" ; ?></th>
+                        </tr>
+                    </thead>
                     <?php
                     global $con ;
 
@@ -202,31 +205,32 @@
                     while( $reg = mysqli_fetch_assoc($rec) ){
                         $idplato = $reg['idplato'] ;
                     ?>
-                    <tr>
-                        <td><?php echo $reg['nombre'] ; ?></td>
-                        <td><?php echo $reg['descripcion'] ; ?></td>        
-                        <td><img width="175" height="115" src="<?php echo $reg['foto']=="" ? "/imagenes/sin_imagen.jpg" : $reg['foto']; ?>"></td>
-                        <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
-                        <td><?php echo $reg['fecha'] ; ?></td>
-                        <td><?php 
-                            if( !isset($_SESSION['email']) )
-                                echo "&nbsp;" ;
-                            else   
-                                echo $reg['ubicacion'] ;
-                            ?>
-                        </td>
-                        <td align="center"><?php echo calificaciones_promedio($idplato); ?><?php if( isset($_SESSION['email']) ) echo " / " . calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $reg['nombre'] ; ?></td>
+                            <td><?php echo $reg['descripcion'] ; ?></td>        
+                            <td><img width="175" height="115" src="<?php echo $reg['foto']=="" ? "/imagenes/sin_imagen.jpg" : $reg['foto']; ?>"></td>
+                            <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
+                            <td><?php echo $reg['fecha'] ; ?></td>
+                            <td><?php 
+                                if( !isset($_SESSION['email']) )
+                                    echo "&nbsp;" ;
+                                else   
+                                    echo $reg['ubicacion'] ;
+                                ?>
+                            </td>
+                            <td align="center"><?php echo calificaciones_promedio($idplato); ?><?php if( isset($_SESSION['email']) ) echo " / " . calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                        </tr>
+                    </tbody>
                     <?php  
                         }
                     ?>
                 </table>
             </form>
+            <br>
             <hr>
-            <table>
-            <tr><td>ESPACIO PARA EL DATATABLES</td></tr>
-            </table>
-            <br />
+            <br>
+
         </div>
 
         <!-- SEGUNDA TAB -->
@@ -238,18 +242,20 @@
             <h2>Mis Publicaciones</h2>
             <br>
             <form action="index.php" method="post" enctype="multipart/form-data">
-                <table align="center" border="1">
-                    <tr>
-                        <th>Plato</th>
-                        <th>Descripci&oacute;n</th>
-                        <th>Foto</th>
-                        <th>Precio</th>
-                        <th>Fecha</th>
-                        <th>Ubicaci&oacute;n</th>
-                        <th>Calificaci&oacute;n<br />Promedio / MiCalificacion</th>
-                        <th>Publicaci&oacute;n</th>
-                        <th>Recomendar</th>
-                    </tr>
+                <table border="1" align="center" class="table align-middle table-bordered border-secondary">
+                    <thead class="align-middle text-center">
+                        <tr>
+                            <th>Plato</th>
+                            <th>Descripci&oacute;n</th>
+                            <th>Foto</th>
+                            <th>Precio</th>
+                            <th>Fecha</th>
+                            <th>Ubicaci&oacute;n</th>
+                            <th>Calificaci&oacute;n<br />Promedio / MiCalificacion</th>
+                            <th>Publicaci&oacute;n</th>
+                            <th>Recomendar</th>
+                        </tr>
+                    </thead>
                 <?php
                     global $con ;
                 
@@ -259,28 +265,30 @@
                     while( $reg = mysqli_fetch_assoc($rec) ){
                         $idplato = $reg['idplato'] ;
                 ?>
-                    <tr>
-                        <td><?php echo $reg['nombre'] ; ?></td>
-                        <td><?php echo $reg['descripcion'] ; ?></td>
-                        <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
-                        <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
-                        <td><?php echo $reg['fecha'] ; ?></td>
-                        <td><?php echo $reg['ubicacion'] ; ?></td>
-                        <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
-                        <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion"></td>
-                        <td>
-                                <select name="email_recomendar">
-                                <?php  
-                                    $emails = obtener_emails() ;
-                                    foreach( $emails as $v ){
-                                ?>
-                                <option value="<?php echo $v[0] ; ?>"><?php echo $v[1] ; ?></option>
-                                <?php  
-                                    }
-                                ?>
-                                </select>
-                                <input type="submit" name="accion" value="Enviar Recomendacion">
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td><?php echo $reg['nombre'] ; ?></td>
+                            <td><?php echo $reg['descripcion'] ; ?></td>
+                            <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
+                            <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
+                            <td><?php echo $reg['fecha'] ; ?></td>
+                            <td><?php echo $reg['ubicacion'] ; ?></td>
+                            <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                            <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion" ></td>
+                            <td>
+                                    <select name="email_recomendar">
+                                    <?php  
+                                        $emails = obtener_emails() ;
+                                        foreach( $emails as $v ){
+                                    ?>
+                                    <option value="<?php echo $v[0] ; ?>"><?php echo $v[1] ; ?></option>
+                                    <?php  
+                                        }
+                                    ?>
+                                    </select>
+                                    <input type="submit" name="accion" value="Enviar Recomendacion">
+                        </tr>
+                    </tbody>
                 <?php
                             }
                     mysql_desconectar() ;
@@ -300,30 +308,33 @@
             ?>
 
             <h2>Recomendaciones de otros usuarios</h2>
-            <table align="center" border="1">
+            <table border="1" align="center" class="table align-middle table-bordered border-secondary">
+                <thead class="align-middle text-center">
+                    <tr>
+                    <th>Usuario</th>
+                    <th>Descripci&oacute;n</th>
+                    <th>Plato</th>
+                    <th>Foto</th>
+                    <th>Precio</th>
+                    <th>Fecha</th>
+                    <th>Ubicaci&oacute;n</th>
+                    <th>Calificaci&oacute;n</th>
+                    <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <tr>
-                <th>Usuario</th>
-                <th>Descripci&oacute;n</th>
-                <th>Plato</th>
-                <th>Foto</th>
-                <th>Precio</th>
-                <th>Fecha</th>
-                <th>Ubicaci&oacute;n</th>
-                <th>Calificaci&oacute;n</th>
-                <th>&nbsp;</th>
-                </tr>
-
-                <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td><button>Eliminar Recomendaci&oacute;nn</button></td>
-                </tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><button> <i class="fa-solid fa-trash"></i> Eliminar Recomendaci&oacute;nn</button></td>
+                    </tr>
+                </tbody>
             </table>
 
             <?php
@@ -383,5 +394,8 @@
 
 <!-- JAVASCRIPT DE BOOTSTRAP -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<!-- JAVASCRIPT DE FONTAWESOME -->
+<script src="https://kit.fontawesome.com/4a51d70254.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
