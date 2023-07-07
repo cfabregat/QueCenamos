@@ -222,7 +222,9 @@
                                     echo $reg['ubicacion'] ;
                                 ?>
                             </td>
-                            <td align="center"><?php echo calificaciones_promedio($idplato); ?><?php if( isset($_SESSION['email']) ) echo " / " . calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                            <td align="center">
+                                <img width=90 height=40 src="/imagenes/<?php echo calificaciones_promedio($idplato)*10; ?>.png">
+                                <?php echo calificaciones_promedio($idplato); ?><?php if( isset($_SESSION['email']) ) echo " / " . calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
                         </tr>
                     </tbody>
                     <?php  
