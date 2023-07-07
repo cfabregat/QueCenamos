@@ -392,8 +392,8 @@
                             <input type="text" name="ubicacion_redsocial" required placeholder="Red Social" ><br />
                         Plato: 
                             <input type="text" name="nombre" required placeholder="Nombre">
-                            <input type="text" name="descripcion" required value="Descripcion">
-                            <input type="text" name="precio" required value="Precio"><br />
+                            <input type="text" name="descripcion" required placeholder="Descripcion">
+                            <input type="text" name="precio" required placeholder="Precio"><br />
                         Foto: <input type="file" name="foto" value="foto"><br />
                         Calificaci&oacute;n:
                             <select name="calificacion">
