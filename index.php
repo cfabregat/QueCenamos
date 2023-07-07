@@ -415,14 +415,14 @@
                         <input type="hidden" name="accion" value="publicar">
                         Fecha<input type="text" name="fecha" value="<?php echo date('Y-m-d H:i:s'); ?>"><br />
                         Ubicación: 
-                            <input type="text" name="ubicacion_nombre" placeholder="Nombre">
-                            <input type="text" name="ubicacion_direccion" placeholder="Direccion">
-                            <input type="text" name="ubicacion_telefono" placeholder="Telefono">
-                            <input type="text" name="ubicacion_redsocial" placeholder="Red Social"><br />
+                            <input type="text" name="ubicacion_nombre" required placeholder="Nombre" >
+                            <input type="text" name="ubicacion_direccion" required placeholder="Direccion">
+                            <input type="text" name="ubicacion_telefono" required placeholder="Telefono">
+                            <input type="text" name="ubicacion_redsocial" required placeholder="Red Social" ><br />
                         Plato: 
-                            <input type="text" name="nombre" value="Nombre">
-                            <input type="text" name="descripcion" value="Descripcion">
-                            <input type="text" name="precio" value="Precio"><br />
+                            <input type="text" name="nombre" required placeholder="Nombre">
+                            <input type="text" name="descripcion" required placeholder="Descripcion">
+                            <input type="text" name="precio" required placeholder="Precio"><br />
                         Foto: <input type="file" name="foto" value="foto"><br />
                         Calificaci&oacute;n:
                             <select name="calificacion">
