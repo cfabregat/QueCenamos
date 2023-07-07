@@ -17,8 +17,11 @@
     <link rel="stylesheet" href="css/estilos.css">
 
 <div class="seccionPrincipal">
-    <h1 id="h1QueCenamos">¿Que Cenamos?<h4 id="h4Usuario"><?php echo isset($_SESSION['email'])? $_SESSION['email'] . ' ('. $_SESSION['idusuario'] . ')' :''; ?></h4></h1>
-
+    <div class="h1Yh4">
+        <h1 id="h1QueCenamos">¿Que Cenamos?</h1>
+        <h4 id="h4Usuario"><?php echo isset($_SESSION['email'])? $_SESSION['email'] . ' ('. $_SESSION['idusuario'] . ')' :''; ?></h4>
+    </div>
+    
     <div class="ingresoDeUsuario">
     <!-- INICIO DEL LOGIN -->
         <!-- INICIAR SESION -->

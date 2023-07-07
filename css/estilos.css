@@ -1,4 +1,4 @@
-/* *{
+/* {
     padding: 0;
     margin: 0;
 } */
@@ -23,6 +23,23 @@ body{
     padding: 1.7% 0 2.4% 0;
 }
 
+.h1Yh4{
+    margin: 0;
+    padding: 0.6rem 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.h1Yh4 h1{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.h1Yh4 h4{
+    font-size: 1.2rem;
+}
+
 #h1QueCenamos{
     font-size: 4.3rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -32,13 +49,6 @@ body{
     background-size: 25vw;
     background-attachment: fixed;
     border-radius: 11px; */
-}
-
-#h4Usuario{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0.3em  0 0.7em 0;
 }
 
 .registroYLogin{
