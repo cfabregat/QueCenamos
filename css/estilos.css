@@ -35,6 +35,9 @@ body{
 .h1Yh4 h1{
     padding-bottom: 0;
     margin-bottom: 0;
+    
+    /* color: rgb(250, 78, 15); */
+    color: rgba(216, 102, 21, 0.854);
 }
 .h1Yh4 h4{
     font-size: 1.2rem;
@@ -113,12 +116,28 @@ body{
 }
 
 /*            PRIMER TAB            */
+/* TABLA */
 table{
     background-color: rgba(0, 0, 0, 0.523);
     color: white !important;
+
+    
 }
 
 table thead tr{
     background-color: rgba(155, 65, 0, 0.854);
 }
+#columnaDelPlato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#imagenesDelPlato{
+    height: 13rem;
+}
 
+/*            CUARTA TAB            */
+.formPublicar label, input{
+    padding: 2px;
+    margin: 5px 15px;
+}

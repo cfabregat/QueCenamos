@@ -44,17 +44,15 @@
                     </div>
                     <div class="modal-body">
 
-                            <form action="index.php" method="post">
+                        <form action="index.php" method="post">
                             <input type="hidden" name="accion" value="login">
                             Email:<input type="text" name="email"><br />
                             Clave:<input type="text" name="clave"><br />
-                            <input type="submit" value="Ingresar">
-                            <button onclick="window.location='/olvide_clave.php'">Olvide la contrase&ntilde;a</button>
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Iniciar sesion</button>
+                            <div class="modal-footer">
+                                <input type="submit" value="Ingresar">
+                                <button onclick="window.location='/olvide_clave.php'">Olvide la contrase&ntilde;a</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -86,17 +84,16 @@
                     </div>
                     <div class="modal-body">
 
-                            <form action="index.php" method="post">
+                        <form action="index.php" method="post">
                             <input type="hidden" name="accion" value="registro">
                             Email<input type="text" name="email"><br />
                             Clave: <input type="text" name="clave"><br />
                             Repetir Clave: <input type="text" name="clave2"><br />
-                            <input type="submit" value="Registrar Usuario">
-                            </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Registrar usuario</button>
+                            <div class="modal-footer">
+                                <input type="submit" value="Registrar Usuario">
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -165,14 +162,15 @@
                 ?>
                 <table border="1" align="center">
                     <tr>
-                        <td><p align="center">Buscar por Nombre o Descripci&oacute;n</p></td>
+                        <td></td>
+                        <!-- <td><p align="center">Buscar por Nombre o Descripci&oacute;n</p></td> -->
                         <td><p align="center">Buscar por foto<br />(haga click sobre la foto cuando quiera ese plato)</p></td>
                     </tr>
                     <tr>
                         <td>
                             <form> 
-                            <br />
-                            <p align='center'><input type="text" name="buscar"><br /><input type="submit" value="Buscar"></p>
+                                <p>Buscar por Nombre o Descripci&oacute;n: </p>
+                                <p align='center'><input type="text" name="buscar"><br /><input type="submit" value="Buscar"></p>
                             </form>
                         </td>
                         <td>
@@ -185,7 +183,7 @@
                 <br>
                 
             <!-- TABLA -->
-                <table border="1" align="center" class="table align-middle table-bordered border-secondary">
+                <table border="1" align="center" class="tablaMenu table align-middle table-bordered border-secondary">
                     <thead class="align-middle text-center">
                         <tr>
                             <th>Plato</th>
@@ -212,7 +210,7 @@
                         <tr>
                             <td><?php echo $reg['nombre'] ; ?></td>
                             <td><?php echo $reg['descripcion'] ; ?></td>        
-                            <td><img width="175" height="115" src="<?php echo $reg['foto']=="" ? "/imagenes/sin_imagen.jpg" : $reg['foto']; ?>"></td>
+                            <td id="columnaDelPlato"><img id="imagenesDelPlato" src="<?php echo $reg['foto']=="" ? "/imagenes/sin_imagen.jpg" : $reg['foto']; ?>"></td>
                             <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
                             <td><?php echo $reg['fecha'] ; ?></td>
                             <td><?php 
@@ -284,7 +282,7 @@
                         <tr>
                             <td><?php echo $reg['nombre'] ; ?></td>
                             <td><?php echo $reg['descripcion'] ; ?></td>
-                            <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
+                            <td id="columnaDelPlato"><img id="imagenesDelPlato" src="<?php echo $reg['foto'] ; ?>"></td>
                             <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
                             <td><?php echo $reg['fecha'] ; ?></td>
                             <td><?php echo $reg['ubicacion'] ; ?></td>
@@ -301,7 +299,7 @@
                                     }
                                 ?>
                             </td>
-                            <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion" ></td>
+                            <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion"></td>
                             <td>
                                     <select name="email_recomendar">
                                     <?php  
@@ -407,39 +405,41 @@
             if( isset($_SESSION['email']) ){
             ?>
 
-
             <h2>Publicar plato</h2>
-            <table align='center' border='1'>
-                <tr>
-                    <td>
-                        <form action="index.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="accion" value="publicar">
-                        Fecha<input type="text" name="fecha" value="<?php echo date('Y-m-d H:i:s'); ?>"><br />
-                        Ubicación: 
-                            <input type="text" name="ubicacion_nombre" required placeholder="Nombre" >
-                            <input type="text" name="ubicacion_direccion" required placeholder="Direccion">
-                            <input type="text" name="ubicacion_telefono" required placeholder="Telefono">
-                            <input type="text" name="ubicacion_redsocial" required placeholder="Red Social" ><br />
-                        Plato: 
-                            <input type="text" name="nombre" required placeholder="Nombre">
-                            <input type="text" name="descripcion" required placeholder="Descripcion">
-                            <input type="text" name="precio" required placeholder="Precio"><br />
-                        Foto: <input type="file" name="foto" value="foto"><br />
-                        Calificaci&oacute;n:
-                            <select name="calificacion">
+                <br>
+                <form class="formPublicar" action="index.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="accion" value="publicar">
+                    <label for="fecha">Fecha: </label>
+                    <input type="text" name="fecha" disabled value="<?php echo date('Y-m-d H:i:s'); ?>">
+                    <br />
+                    <hr>
+                    <label for="ubicacion">Ubicación: </label> <br>
+                        <input type="text" name="ubicacion_nombre" required placeholder="Nombre del local" >
+                        <input type="text" name="ubicacion_direccion" required placeholder="Direccion">
+                        <input type="text" name="ubicacion_telefono" required placeholder="Telefono">
+                        <input type="text" name="ubicacion_redsocial" required placeholder="Red Social" ><br />
+                    <hr>
+                    <label for="plato">Plato: </label> <br>
+                        <input type="text" name="nombre" required placeholder="Nombre">
+                        <input type="text" name="descripcion" required placeholder="Descripcion">
+                        <input type="text" name="precio" required placeholder="Precio" ><br />
+                    <hr>
+                    <label for="foto">Foto: </label> 
+                    <input type="file" name="foto" value="foto"><br />
+                    <hr>
+                    <label for="calificacion">Calificaci&oacute;n: </label> 
+                        <select name="calificacion">
                             <option value='1'>Mala</option>
                             <option value='2'>Regular</option>
                             <option value='3' selected>Buena</option>
                             <option value='4'>Muy buena</option>
                             <option value='5'>Excelente</option>
-                            </select>
-                        <br  />
-                        <p align='center'><input type="submit" value="Publicar"></p>
-                        </form>
-                    </td>
-                </tr>
-            </table>
-
+                        </select>
+                    <br>
+                    <br  />
+                    <p align='center'><input type="submit" value="Publicar"></p>
+                </form>
+            <hr>
             <?php
             }
             ?>
