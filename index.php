@@ -391,9 +391,9 @@
                             <input type="text" name="ubicacion_telefono" required placeholder="Telefono">
                             <input type="text" name="ubicacion_redsocial" required placeholder="Red Social" ><br />
                         Plato: 
-                            <input type="text" name="nombre" value="Nombre" required>
-                            <input type="text" name="descripcion" value="Descripcion" required>
-                            <input type="text" name="precio" value="Precio" required><br />
+                            <input type="text" name="nombre" required value="Nombre" required>
+                            <input type="text" name="descripcion" required value="Descripcion" required>
+                            <input type="text" name="precio" required value="Precio" required><br />
                         Foto: <input type="file" name="foto" value="foto"><br />
                         Calificaci&oacute;n:
                             <select name="calificacion">
