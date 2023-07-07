@@ -222,7 +222,19 @@
                                     echo $reg['ubicacion'] ;
                                 ?>
                             </td>
-                            <td align="center"><?php echo calificaciones_promedio($idplato); ?><?php if( isset($_SESSION['email']) ) echo " / " . calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                            <td align="center">
+                                <?php echo calificaciones_promedio($idplato); ?>
+                                <img width=90 height=40 src="/imagenes/<?php echo calificaciones_foto_promedio($idplato); ?>.png">
+                                <?php if( isset($_SESSION['email']) )
+                                    {
+                                ?>
+                                <br /> / <br />
+                                <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?>
+                                <img width=90 height=40 src="/imagenes/<?php echo calificacion_foto($_SESSION['idusuario'],$idplato); ?>.png">
+                                <?php
+                                    }
+                                ?>
+                            </td>
                         </tr>
                     </tbody>
                     <?php  
@@ -276,7 +288,19 @@
                             <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
                             <td><?php echo $reg['fecha'] ; ?></td>
                             <td><?php echo $reg['ubicacion'] ; ?></td>
-                            <td align="center"><?php echo calificaciones_promedio($idplato); ?> / <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?></td>
+                            <td align="center">
+                                <?php echo calificaciones_promedio($idplato); ?>
+                                <img width=90 height=40 src="/imagenes/<?php echo calificaciones_foto_promedio($idplato); ?>.png">
+                                <?php if( isset($_SESSION['email']) )
+                                    {
+                                ?>
+                                <br /> / <br />
+                                <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?>
+                                <img width=90 height=40 src="/imagenes/<?php echo calificacion_foto($_SESSION['idusuario'],$idplato); ?>.png">
+                                <?php
+                                    }
+                                ?>
+                            </td>
                             <td><input type="hidden" name="idplato" value="<?php echo $reg['idplato']; ?>"><input type="submit" name="accion" value="Eliminar Publicacion" ></td>
                             <td>
                                     <select name="email_recomendar">
