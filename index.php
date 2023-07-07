@@ -339,8 +339,8 @@
                 <thead class="align-middle text-center">
                     <tr>
                     <th>Usuario</th>
+                    <th>Nombre</th>
                     <th>Descripci&oacute;n</th>
-                    <th>Plato</th>
                     <th>Foto</th>
                     <th>Precio</th>
                     <th>Fecha</th>
@@ -350,24 +350,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td><button> <i class="fa-solid fa-trash"></i> Eliminar Recomendaci&oacute;nn</button></td>
-                    </tr>
+                <?php
+                    global $con ;
+                
+                    mysql_conectar() ;
+                    $sql = "SELECT * FROM platos RIGHT JOIN recomendaciones ON platos.idplato=recomendaciones.idplato WHERE recomendaciones.idusuario_a_recomendar=" . $_SESSION['idusuario'] . ";" ;
+                    $rec = mysqli_query( $con, $sql );
+                    while( $reg = mysqli_fetch_assoc($rec) ){
+                        $idplato = $reg['idplato'] ;
+                ?>
+                    <tbody>
+                        <tr>
+                            <td><?php echo obtener_email_por_idususario( $reg['idusuario'] ) ; ?></td>
+                            <td><?php echo $reg['nombre'] ; ?></td>
+                            <td><?php echo $reg['descripcion'] ; ?></td>
+                            <td><img width="175" height="115" src="<?php echo $reg['foto'] ; ?>"></td>
+                            <td align="right"><?php echo sprintf('%0.2f', $reg['precio']) ; ?></td>
+                            <td><?php echo $reg['fecha'] ; ?></td>
+                            <td><?php echo $reg['ubicacion'] ; ?></td>
+                            <td align="center">
+                                <?php echo calificaciones_promedio($idplato); ?>
+                                <img width=90 height=40 src="/imagenes/<?php echo calificaciones_foto_promedio($idplato); ?>.png">
+                                <?php if( isset($_SESSION['email']) )
+                                    {
+                                ?>
+                                <br /> / <br />
+                                <?php echo calificacion($_SESSION['idusuario'],$idplato) ; ?>
+                                <img width=90 height=40 src="/imagenes/<?php echo calificacion_foto($_SESSION['idusuario'],$idplato); ?>.png">
+                                <?php
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <input type="hidden" name="idrecomendacion" value="<?php echo $reg['idrecomendar']; ?>">
+                                <input type="submit" name="accion" value="Eliminar Recomendacion" >
+                            </td>
+                        </tr>
+                    </tbody>
+                <?php
+                            }
+                    mysql_desconectar() ;
+                ?>
                 </tbody>
             </table>
 
             <?php
             }
             ?>
-
             <br />
         </div>
 

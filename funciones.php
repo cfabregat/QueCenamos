@@ -259,4 +259,25 @@ function recomendacion_eliminar( $idrecomendar ){
     $rec = mysqli_query( $con, $sql );
 }
 
+function obtener_email_por_idususario( $idusuario ){
+    global $con ;
+
+    mysql_conectar() ;
+    $idusuario = mysqli_escape_string($con, $idusuario);
+    $sql = "SELECT email FROM usuarios WHERE idusuario=" . $idusuario . ";" ; 
+    $rec = mysqli_query( $con, $sql );
+    $reg = mysqli_fetch_assoc($rec) ;
+
+    return( $reg['email'] );
+}
+
+function eliminar_recomendacion( $idrecomendar ){
+    global $con ;
+    
+    mysql_conectar() ;
+    $idrecomendar = mysqli_escape_string($con, $idrecomendar);
+    $sql = "DELETE FROM recomendaciones WHERE idrecomendar='$idrecomendar';" ;
+    $rec = mysqli_query( $con, $sql );
+}
+
 ?>
