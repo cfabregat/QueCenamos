@@ -56,4 +56,11 @@ if( isset($_POST['accion']) && $_POST['accion']=="login" )
             recomendacion_agregar( $_SESSION['idusuario'], $idplato, $email_recomendar ) ;
         }
 
+    if( isset($_POST['accion']) && $_POST['accion']=="Eliminar Recomendacion" )
+    {
+        $idrecomendacion = $_POST['idrecomendacion'] ;
+
+        eliminar_recomendacion( $idrecomendacion ) ;
+    }
+
 ?>

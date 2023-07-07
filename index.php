@@ -335,6 +335,7 @@
             ?>
 
             <h2>Recomendaciones de otros usuarios</h2>
+            <form action="index.php" method="post" enctype="multipart/form-data">
             <table border="1" align="center" class="table align-middle table-bordered border-secondary">
                 <thead class="align-middle text-center">
                     <tr>
@@ -393,7 +394,7 @@
                 ?>
                 </tbody>
             </table>
-
+            </form>
             <?php
             }
             ?>
