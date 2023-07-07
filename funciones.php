@@ -141,6 +141,22 @@ function calificaciones_promedio( $idplato ){
     return( $promedio ) ;
 }
 
+function calificaciones_foto_promedio( $idplato ){
+    global $con ;
+    $promedio = 0 ;
+    
+    mysql_conectar() ;
+    $idplato = mysqli_escape_string($con, $idplato);
+    $sql = "SELECT ROUND(AVG(calificacion),0) promedio FROM calificaciones WHERE idplato=" . $idplato . ";" ;
+    $rec = mysqli_query( $con, $sql );
+    if( mysqli_num_rows($rec) > 0 ){
+        $reg = mysqli_fetch_assoc($rec) ;
+        $promedio = $reg['promedio'] ;
+        }
+
+        return( $promedio*10 ) ;
+}
+
 function eliminar_publicacion( $idplato ){
     global $con ;
     
@@ -174,6 +190,26 @@ function calificacion($idusuario,$idplato){
     //mysql_desconectar() ;
 
     return( $calificacion ) ;  
+}
+
+function calificacion_foto($idusuario,$idplato){
+    global $con ;
+    $calificacion = 0;
+
+    mysql_conectar() ;
+    $idusuario = mysqli_escape_string($con, $idusuario);
+    $idplato = mysqli_escape_string($con, $idplato);
+    $sql = "SELECT calificacion FROM calificaciones WHERE idusuario=" . $idusuario . " AND idplato=" . $idplato . ";" ;
+    $rec = mysqli_query( $con, $sql );
+    if( mysqli_num_rows($rec) > 0 ){
+        $reg = mysqli_fetch_assoc($rec) ;
+        $calificacion = $reg['calificacion'] ;
+        }
+
+    if( $calificacion == 0 )
+        return( "sin_calificar" ) ;
+    else 
+        return( $calificacion*10 ) ;  
 }
 
 function foto_aleatoria(){
