@@ -93,7 +93,7 @@ CREATE TABLE `recomendaciones` (
   `idrecomendar` int(10) UNSIGNED NOT NULL,
   `idusuario` int(10) UNSIGNED NOT NULL,
   `idplato` int(10) UNSIGNED NOT NULL,
-  `idusuario_a_recomnedar` int(10) UNSIGNED NOT NULL
+  `idusuario_a_recomenedar` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
